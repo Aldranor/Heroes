@@ -1,0 +1,39 @@
+# Laravel
+Laravel/.phpunit.cache
+Laravel/node_modules
+Laravel/public/build
+Laravel/public/fonts-manifest.dev.json
+Laravel/public/hot
+Laravel/public/storage
+Laravel/storage/*.key
+Laravel/storage/pail
+Laravel/vendor
+Laravel/.env
+Laravel/.env.backup
+Laravel/.env.production
+Laravel/.phpactor.json
+Laravel/.phpunit.result.cache
+Laravel/Homestead.json
+Laravel/Homestead.yaml
+Laravel/npm-debug.log
+Laravel/yarn-error.log
+Laravel/auth.json
+Laravel/.fleet
+Laravel/.nova
+Laravel/.vscode
+Laravel/.zed
+
+# Laravel debugbar
+Laravel/storage/debugbar/*.json
+
+# Godot
+Godot/.godot
+Godot/.mono
+Godot/export_presets.cfg
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea

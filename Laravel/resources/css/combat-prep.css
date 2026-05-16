@@ -1,0 +1,317 @@
+.combat-prep-page {
+    display: grid;
+    gap: 1rem;
+    padding: 1rem;
+}
+
+.combat-prep-hero {
+    padding: 1.25rem;
+}
+
+.combat-prep-hero__meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.75rem;
+}
+
+.combat-prep-kicker {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(245, 158, 11, 0.76);
+}
+
+.combat-prep-title {
+    margin-top: 0.28rem;
+    font-size: clamp(1.9rem, 3vw, 2.6rem);
+    line-height: 0.98;
+    color: #fff7ed;
+}
+
+.combat-prep-body {
+    margin-top: 0.65rem;
+    max-width: 48rem;
+    font-size: 0.95rem;
+    line-height: 1.65;
+    color: rgba(231, 229, 228, 0.74);
+}
+
+.combat-prep-pill {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.32rem 0.62rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.04);
+    font-size: 0.68rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(245, 245, 244, 0.86);
+}
+
+.combat-prep-layout {
+    display: grid;
+    gap: 1rem;
+    grid-template-columns: minmax(0, 1.55fr) minmax(18rem, 0.82fr);
+}
+
+.combat-prep-main {
+    display: grid;
+    gap: 1rem;
+}
+
+.combat-prep-panel {
+    padding: 1rem;
+}
+
+.combat-prep-panel__head {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.combat-prep-panel__title {
+    font-size: 1.2rem;
+    color: #fff7ed;
+}
+
+.combat-prep-panel__subtitle {
+    margin-top: 0.24rem;
+    font-size: 0.86rem;
+    line-height: 1.55;
+    color: rgba(214, 211, 209, 0.7);
+}
+
+.combat-prep-grid {
+    display: grid;
+    gap: 0.8rem;
+    margin-top: 0.95rem;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+.combat-prep-field {
+    display: grid;
+    gap: 0.42rem;
+}
+
+.combat-prep-label {
+    font-size: 0.66rem;
+    font-weight: 800;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: rgba(214, 211, 209, 0.62);
+}
+
+.combat-prep-select {
+    width: 100%;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 0.9rem;
+    background: rgba(255, 255, 255, 0.04);
+    padding: 0.8rem 0.9rem;
+    color: #f5efe7;
+}
+
+.combat-prep-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.45rem;
+    margin-top: 0.9rem;
+}
+
+.combat-prep-tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.28rem 0.52rem;
+    border: 1px solid rgba(245, 158, 11, 0.16);
+    border-radius: 999px;
+    background: rgba(245, 158, 11, 0.08);
+    font-size: 0.66rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: rgba(255, 237, 213, 0.9);
+}
+
+.combat-prep-loadout {
+    display: grid;
+    gap: 0.9rem;
+    margin-top: 1rem;
+}
+
+.combat-prep-slot {
+    display: grid;
+    gap: 0.55rem;
+}
+
+.combat-prep-slot__head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+}
+
+.combat-prep-slot__count {
+    font-size: 0.68rem;
+    font-weight: 800;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: rgba(214, 211, 209, 0.52);
+}
+
+.combat-prep-skill-grid {
+    display: grid;
+    gap: 0.6rem;
+}
+
+.combat-prep-skill-option {
+    display: flex;
+    gap: 0.75rem;
+    align-items: flex-start;
+    padding: 0.78rem 0.85rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.combat-prep-skill-option input[type="checkbox"],
+.combat-prep-skill-option input[type="radio"] {
+    margin-top: 0.2rem;
+}
+
+.combat-prep-skill-option__title {
+    font-size: 0.88rem;
+    font-weight: 700;
+    color: #fff7ed;
+}
+
+.combat-prep-skill-option__meta {
+    margin-top: 0.18rem;
+    font-size: 0.74rem;
+    line-height: 1.45;
+    color: rgba(214, 211, 209, 0.72);
+}
+
+.combat-prep-skill-option__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.34rem;
+    margin-top: 0.45rem;
+}
+
+.combat-prep-skill-option__tag {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.18rem 0.42rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.05);
+    font-size: 0.62rem;
+    font-weight: 700;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    color: rgba(245, 245, 244, 0.78);
+}
+
+.combat-prep-companion {
+    display: grid;
+    gap: 0.9rem;
+}
+
+.combat-prep-companion__select {
+    display: flex;
+    align-items: center;
+    gap: 0.7rem;
+    padding: 0.8rem 0.9rem;
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    border-radius: 1rem;
+    background: rgba(255, 255, 255, 0.03);
+}
+
+.combat-prep-companion__portrait {
+    width: 3.8rem;
+    height: 3.8rem;
+    border-radius: 0.95rem;
+    object-fit: cover;
+    background: rgba(255, 255, 255, 0.04);
+}
+
+.combat-prep-sidebar {
+    display: grid;
+    gap: 1rem;
+    align-content: start;
+}
+
+.combat-prep-summary {
+    padding: 1rem;
+}
+
+.combat-prep-summary__value {
+    margin-top: 0.4rem;
+    font-size: 2rem;
+    font-weight: 800;
+    color: #fff7ed;
+}
+
+.combat-prep-list {
+    display: grid;
+    gap: 0.55rem;
+    margin-top: 0.8rem;
+}
+
+.combat-prep-list__item {
+    padding: 0.72rem 0.8rem;
+    border: 1px solid rgba(255, 255, 255, 0.06);
+    border-radius: 0.95rem;
+    background: rgba(255, 255, 255, 0.03);
+    font-size: 0.84rem;
+    line-height: 1.5;
+    color: rgba(245, 245, 244, 0.82);
+}
+
+.combat-prep-actions {
+    display: grid;
+    gap: 0.7rem;
+}
+
+.combat-prep-button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    border: 1px solid rgba(245, 158, 11, 0.28);
+    border-radius: 1rem;
+    padding: 0.95rem 1rem;
+    background:
+        radial-gradient(circle at top, rgba(245, 158, 11, 0.14), transparent 64%),
+        rgba(245, 158, 11, 0.08);
+    font-size: 0.78rem;
+    font-weight: 900;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: #fff7ed;
+}
+
+.combat-prep-note {
+    font-size: 0.78rem;
+    line-height: 1.55;
+    color: rgba(214, 211, 209, 0.64);
+}
+
+@media (max-width: 1023px) {
+    .combat-prep-layout {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 767px) {
+    .combat-prep-page {
+        padding: 0.75rem;
+    }
+
+    .combat-prep-grid {
+        grid-template-columns: 1fr;
+    }
+}
