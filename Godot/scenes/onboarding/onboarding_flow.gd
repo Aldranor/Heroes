@@ -132,6 +132,8 @@ func _update_nav_buttons() -> void:
 	_skip_button.text = "Passer le tutoriel" if is_tutorial else "Passer la personnalisation"
 	_back_button.visible = current_step > 0 and not is_welcome
 	_next_button.text = "Commencer l'aventure!" if is_tutorial else "Suivant"
+	_step_container.offset_top = 48.0 if current_step > 0 else 0.0
+	_step_container.offset_bottom = -56.0 if show_flow_nav else 0.0
 
 func _on_skip_pressed() -> void:
 	AudioManager.play_sfx("click", -5.0)
