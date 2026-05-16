@@ -1,0 +1,79 @@
+[gd_scene load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scenes/shared/ui/dialog_box.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/shared/ui/pixel_button.tscn" id="2_button"]
+
+[sub_resource type="StyleBoxFlat" id="sb_dialog"]
+bg_color = Color(0.101961, 0.101961, 0.101961, 0.98)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.290196, 0.270588, 0.25098, 1)
+content_margin_left = 8.0
+content_margin_top = 8.0
+content_margin_right = 8.0
+content_margin_bottom = 8.0
+
+[node name="DialogBox" type="PanelContainer"]
+custom_minimum_size = Vector2(0, 150)
+theme_override_styles/panel = SubResource("sb_dialog")
+script = ExtResource("1_script")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Header" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="SpeakerAvatar" type="TextureRect" parent="VBox/Header"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+expand_mode = 1
+stretch_mode = 5
+
+[node name="SpeakerName" type="Label" parent="VBox/Header"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 4
+text = "Narrateur"
+vertical_alignment = 1
+
+[node name="DialogText" type="RichTextLabel" parent="VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 58)
+layout_mode = 2
+size_flags_vertical = 3
+bbcode_enabled = false
+fit_content = false
+scroll_active = false
+text = "..."
+
+[node name="Footer" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="Spacer" type="Control" parent="VBox/Footer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="NextIndicator" type="Label" parent="VBox/Footer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = ">>"
+
+[node name="NextButton" parent="VBox/Footer" instance=ExtResource("2_button")]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Suivant"
+
+[node name="TypeTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = false
+
+[node name="BlinkTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+wait_time = 0.5
+autostart = true

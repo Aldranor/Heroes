@@ -1,0 +1,74 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/onboarding/steps/step_welcome.gd" id="1_script"]
+
+[node name="StepWelcome" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_script")
+
+[node name="Container" type="VBoxContainer" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="SpacerTop" type="Control" parent="Container"]
+custom_minimum_size = Vector2(0, 40)
+size_flags_vertical = 3
+
+[node name="LogoLabel" type="Label" parent="Container"]
+unique_name_in_owner = true
+text = "CODEX"
+horizontal_alignment = 1
+vertical_alignment = 1
+size_flags_horizontal = 4
+size_flags_vertical = 0
+
+[node name="SubtitleLabel" type="Label" parent="Container"]
+unique_name_in_owner = true
+text = "Apprends le code de la route en jouant"
+horizontal_alignment = 1
+vertical_alignment = 1
+size_flags_horizontal = 4
+modulate = Color(0.831, 0.686, 0.216, 1)
+
+[node name="SpacerMid" type="Control" parent="Container"]
+custom_minimum_size = Vector2(0, 20)
+size_flags_vertical = 2
+
+[node name="HeroSprite" type="TextureRect" parent="Container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(120, 96)
+size_flags_horizontal = 4
+size_flags_vertical = 1
+expand_mode = 1
+stretch_mode = 5
+color = Color(0.831, 0.686, 0.216, 0.3)
+
+[node name="SpacerMid2" type="Control" parent="Container"]
+custom_minimum_size = Vector2(0, 10)
+size_flags_vertical = 1
+
+[node name="DescriptionLabel" type="Label" parent="Container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 60)
+text = "Les esprits de la route ont disparu. Forme ton équipe, étudie le code, et reprends le contrôle des intersections."
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+size_flags_horizontal = 4
+
+[node name="SpacerBottom" type="Control" parent="Container"]
+custom_minimum_size = Vector2(0, 20)
+size_flags_vertical = 3
+
+[node name="StartButton" type="Button" parent="Container"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 48)
+text = "Commencer"
+size_flags_horizontal = 4
+size_flags_vertical = 0

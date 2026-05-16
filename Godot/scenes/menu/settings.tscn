@@ -1,0 +1,103 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/menu/settings.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/shared/ui/pixel_button.tscn" id="2_pixel_button"]
+
+[node name="Settings" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_left = 16
+offset_top = 16
+offset_right = -16
+offset_bottom = -16
+
+[node name="Header" type="HBoxContainer" parent="VBox"]
+layout_mode = 2
+
+[node name="BackButton" type="Button" parent="VBox/Header"]
+unique_name_in_owner = true
+text = "< Retour"
+
+[node name="Title" type="Label" parent="VBox/Header"]
+size_flags_horizontal = 3
+text = "Paramètres"
+horizontal_alignment = 1
+
+[node name="AudioSection" type="Label" parent="VBox"]
+layout_mode = 2
+text = "AUDIO"
+
+[node name="MusicSlider" type="HSlider" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 100.0
+value = 80.0
+
+[node name="MusicLabel" type="Label" parent="VBox"]
+layout_mode = 2
+text = "Musique"
+
+[node name="SfxSlider" type="HSlider" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+max_value = 100.0
+value = 80.0
+
+[node name="SfxLabel" type="Label" parent="VBox"]
+layout_mode = 2
+text = "Effets sonores"
+
+[node name="LangSection" type="Label" parent="VBox"]
+layout_mode = 2
+text = "LANGUE"
+
+[node name="LangDropdown" type="OptionButton" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="AccessSection" type="Label" parent="VBox"]
+layout_mode = 2
+text = "ACCESSIBILITE"
+
+[node name="ReduceAnimToggle" type="CheckButton" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Reduire animations"
+
+[node name="AccountSection" type="Label" parent="VBox"]
+layout_mode = 2
+text = "COMPTE"
+
+[node name="EmailLabel" type="Label" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "email@example.com"
+
+[node name="LogoutButton" parent="VBox" instance=ExtResource("2_pixel_button")]
+unique_name_in_owner = true
+layout_mode = 2
+button_type = 2
+text = "Se deconnecter"
+
+[node name="AboutSection" type="Label" parent="VBox"]
+layout_mode = 2
+text = "A PROPOS"
+
+[node name="VersionLabel" type="Label" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "v1.0"

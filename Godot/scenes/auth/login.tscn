@@ -1,0 +1,75 @@
+[gd_scene load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scenes/auth/login.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/shared/ui/pixel_button.tscn" id="2_pixel_button"]
+
+[node name="Login" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Center" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+offset_left = 24
+offset_top = 24
+offset_right = -24
+offset_bottom = -24
+
+[node name="VBox" type="VBoxContainer" parent="Center"]
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SpacerTop" type="Control" parent="Center/VBox"]
+size_flags_vertical = 3
+
+[node name="LogoTitle" type="Label" parent="Center/VBox"]
+size_flags_horizontal = 4
+text = "Codex"
+horizontal_alignment = 1
+
+[node name="EmailInput" type="LineEdit" parent="Center/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+size_flags_horizontal = 4
+placeholder_text = "Email"
+virtual_keyboard_type = 2
+
+[node name="PasswordInput" type="LineEdit" parent="Center/VBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 44)
+size_flags_horizontal = 4
+placeholder_text = "Mot de passe"
+secret = true
+virtual_keyboard_type = 4
+
+[node name="ErrorLabel" type="Label" parent="Center/VBox"]
+unique_name_in_owner = true
+size_flags_horizontal = 4
+text = ""
+horizontal_alignment = 1
+
+[node name="LoginButton" parent="Center/VBox" instance=ExtResource("2_pixel_button")]
+unique_name_in_owner = true
+size_flags_horizontal = 4
+text = "Connexion"
+
+[node name="RegisterButton" parent="Center/VBox" instance=ExtResource("2_pixel_button")]
+unique_name_in_owner = true
+size_flags_horizontal = 4
+button_type = 1
+text = "Creer un compte"
+
+[node name="ForgotLink" type="Button" parent="Center/VBox"]
+unique_name_in_owner = true
+size_flags_horizontal = 4
+text = "Mot de passe oublie ?"
+
+[node name="SpacerBottom" type="Control" parent="Center/VBox"]
+size_flags_vertical = 3

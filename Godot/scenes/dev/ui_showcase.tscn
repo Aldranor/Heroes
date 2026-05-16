@@ -1,0 +1,158 @@
+[gd_scene load_steps=10 format=3]
+
+[ext_resource type="Script" path="res://scenes/dev/ui_showcase.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://scenes/shared/ui/pixel_button.tscn" id="2_pixel_button"]
+[ext_resource type="PackedScene" path="res://scenes/shared/ui/stat_bar.tscn" id="3_stat_bar"]
+[ext_resource type="PackedScene" path="res://scenes/shared/ui/dialog_box.tscn" id="4_dialog_box"]
+[ext_resource type="PackedScene" path="res://scenes/shared/ui/sprite_animator.tscn" id="5_sprite_animator"]
+[ext_resource type="PackedScene" path="res://scenes/shared/ui/tab_bar.tscn" id="6_tab_bar"]
+
+[node name="UIShowcase" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_script")
+
+[node name="Background" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.101961, 0.101961, 0.101961, 1)
+
+[node name="RootMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="MainVBox" type="VBoxContainer" parent="RootMargin"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 8
+
+[node name="Scroll" type="ScrollContainer" parent="RootMargin/MainVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+horizontal_scroll_mode = 3
+
+[node name="ContentVBox" type="VBoxContainer" parent="RootMargin/MainVBox/Scroll"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
+
+[node name="Title" type="Label" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
+layout_mode = 2
+text = "UI Showcase"
+horizontal_alignment = 1
+
+[node name="ButtonsGrid" type="GridContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+
+[node name="PrimaryButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ButtonsGrid" instance=ExtResource("2_pixel_button")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Primary"
+
+[node name="SecondaryButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ButtonsGrid" instance=ExtResource("2_pixel_button")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Secondary"
+button_type = 1
+
+[node name="DangerButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ButtonsGrid" instance=ExtResource("2_pixel_button")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Danger"
+button_type = 2
+
+[node name="ActionsGrid" type="GridContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+columns = 2
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+
+[node name="ToastButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ActionsGrid" instance=ExtResource("2_pixel_button")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Toast"
+
+[node name="ModalButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ActionsGrid" instance=ExtResource("2_pixel_button")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Modal"
+
+[node name="LoadingButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ActionsGrid" instance=ExtResource("2_pixel_button")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Loading"
+
+[node name="Bars" type="VBoxContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 6
+
+[node name="HpBar" parent="RootMargin/MainVBox/Scroll/ContentVBox/Bars" instance=ExtResource("3_stat_bar")]
+unique_name_in_owner = true
+layout_mode = 2
+bar_type = 0
+
+[node name="MpBar" parent="RootMargin/MainVBox/Scroll/ContentVBox/Bars" instance=ExtResource("3_stat_bar")]
+unique_name_in_owner = true
+layout_mode = 2
+bar_type = 1
+
+[node name="XpBar" parent="RootMargin/MainVBox/Scroll/ContentVBox/Bars" instance=ExtResource("3_stat_bar")]
+unique_name_in_owner = true
+layout_mode = 2
+bar_type = 2
+
+[node name="DialogBox" parent="RootMargin/MainVBox/Scroll/ContentVBox" instance=ExtResource("4_dialog_box")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpritePreviewPanel" type="PanelContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 92)
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="SpritePreviewCenter" type="CenterContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox/SpritePreviewPanel"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="SpriteAnimator" parent="RootMargin/MainVBox/Scroll/ContentVBox/SpritePreviewPanel/SpritePreviewCenter" instance=ExtResource("5_sprite_animator")]
+unique_name_in_owner = true
+
+[node name="BottomTabBar" parent="RootMargin/MainVBox" instance=ExtResource("6_tab_bar")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3

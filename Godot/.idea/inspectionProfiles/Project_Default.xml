@@ -1,0 +1,47 @@
+<component name="InspectionProjectProfileManager">
+  <profile version="1.0">
+    <option name="myName" value="Project Default" />
+    <inspection_tool class="Eslint" enabled="true" level="WARNING" enabled_by_default="true" />
+    <inspection_tool class="PyPackageRequirementsInspection" enabled="true" level="WARNING" enabled_by_default="true">
+      <option name="ignoredPackages">
+        <list>
+          <option value="aiohttp" />
+          <option value="aiosignal" />
+          <option value="attrs" />
+          <option value="click" />
+          <option value="colorama" />
+          <option value="cssbeautifier" />
+          <option value="diff-match-patch" />
+          <option value="discord" />
+          <option value="discord.py" />
+          <option value="django-components" />
+          <option value="django-import-export" />
+          <option value="django-jet-reboot" />
+          <option value="djlint" />
+          <option value="easy-thumbnails" />
+          <option value="EditorConfig" />
+          <option value="et-xmlfile" />
+          <option value="frozenlist" />
+          <option value="html-tag-names" />
+          <option value="html-void-elements" />
+          <option value="importlib-metadata" />
+          <option value="jsbeautifier" />
+          <option value="lxml" />
+          <option value="MarkupPy" />
+          <option value="multidict" />
+          <option value="odfpy" />
+          <option value="openpyxl" />
+          <option value="pathspec" />
+          <option value="pypng" />
+          <option value="regex" />
+          <option value="tablib" />
+          <option value="tqdm" />
+          <option value="xlrd" />
+          <option value="xlwt" />
+          <option value="yarl" />
+          <option value="zipp" />
+        </list>
+      </option>
+    </inspection_tool>
+  </profile>
+</component>

@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/shared/ui/pixel_button.gd" id="1_script"]
+
+[node name="PixelButton" type="Button"]
+custom_minimum_size = Vector2(44, 44)
+offset_right = 180.0
+offset_bottom = 44.0
+text = "Pixel Button"
+script = ExtResource("1_script")

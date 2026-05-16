@@ -1,0 +1,50 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scenes/onboarding/steps/step_avatar_outfit.gd" id="1_script"]
+
+[node name="StepAvatarOutfit" type="Control"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("1_script")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TitleLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+text = "Choisis ta tenue"
+horizontal_alignment = 1
+size_flags_horizontal = 4
+
+[node name="PreviewRect" type="TextureRect" parent="VBoxContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(200, 140)
+size_flags_horizontal = 4
+size_flags_vertical = 0
+expand_mode = 1
+stretch_mode = 5
+color = Color(0.831, 0.686, 0.216, 0.3)
+
+[node name="OutfitScroll" type="ScrollContainer" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 280)
+size_flags_horizontal = 4
+size_flags_vertical = 1
+
+[node name="OutfitGrid" type="GridContainer" parent="VBoxContainer/OutfitScroll"]
+unique_name_in_owner = true
+columns = 2
+size_flags_horizontal = 4
+
+[node name="DescriptionLabel" type="Label" parent="VBoxContainer"]
+unique_name_in_owner = true
+text = ""
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 2
+custom_minimum_size = Vector2(0, 30)
+size_flags_horizontal = 4
