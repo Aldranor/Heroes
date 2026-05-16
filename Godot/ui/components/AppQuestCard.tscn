@@ -1,0 +1,46 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://ui/components/app_quest_card.gd" id="1_script"]
+
+[node name="QuestCard" type="PanelContainer"]
+script = ExtResource("1_script")
+
+[node name="VBox" type="VBoxContainer" parent="."]
+layout_mode = 2
+theme_override_constants/separation = 0
+
+[node name="ImageRect" type="TextureRect" parent="VBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+custom_minimum_size = Vector2(0, 128)
+expand_mode = 1
+stretch_mode = 5
+
+[node name="Body" type="VBoxContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/separation = 8
+add_theme_constant_override("margin_left", 16)
+add_theme_constant_override("margin_right", 16)
+add_theme_constant_override("margin_top", 12)
+
+[node name="StatusBadge" type="Label" parent="VBox/Body"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "STATUT"
+horizontal_alignment = 1
+
+[node name="TitleLabel" type="Label" parent="VBox/Body"]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="VBox/Body"]
+unique_name_in_owner = true
+layout_mode = 2
+autowrap_mode = 3
+
+[node name="CtaButton" type="Button" parent="VBox/Body"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "EXPLORER"
+alignment = 1

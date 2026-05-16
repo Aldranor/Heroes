@@ -1,17 +1,18 @@
-[gd_scene load_steps=5 format=3]
+[gd_scene format=3 uid="uid://cywg2iburndtf"]
 
-[ext_resource type="Script" path="res://scenes/onboarding/steps/step_welcome.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://bqokmk17m1p7f" path="res://scenes/onboarding/steps/step_welcome.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://ui/components/AppButton.tscn" id="2_button"]
 [ext_resource type="PackedScene" path="res://ui/components/AppOnboardingHeroCard.tscn" id="3_hero_card"]
 [ext_resource type="PackedScene" path="res://ui/components/AppOnboardingJourneyPanel.tscn" id="4_journey_panel"]
 
-[node name="StepWelcome" type="Control"]
+[node name="StepWelcome" type="Control" unique_id=677528949]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("1_script")
 
-[node name="Background" type="ColorRect" parent="."]
+[node name="Background" type="ColorRect" parent="." unique_id=1421838967]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -20,7 +21,7 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.06, 0.05, 0.05, 1)
 
-[node name="RootMargin" type="MarginContainer" parent="."]
+[node name="RootMargin" type="MarginContainer" parent="." unique_id=1914129548]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -32,45 +33,46 @@ theme_override_constants/margin_top = 14
 theme_override_constants/margin_right = 14
 theme_override_constants/margin_bottom = 14
 
-[node name="RootVBox" type="VBoxContainer" parent="RootMargin"]
+[node name="RootVBox" type="VBoxContainer" parent="RootMargin" unique_id=1822615008]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 12
 
-[node name="BrandBar" type="HBoxContainer" parent="RootMargin/RootVBox"]
+[node name="BrandBar" type="HBoxContainer" parent="RootMargin/RootVBox" unique_id=1401100357]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="BrandLabel" type="Label" parent="RootMargin/RootVBox/BrandBar"]
+[node name="BrandLabel" type="Label" parent="RootMargin/RootVBox/BrandBar" unique_id=793420980]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 text = "ACADÉMIE DES HÉROS"
 
-[node name="LoginButton" parent="RootMargin/RootVBox/BrandBar" instance=ExtResource("2_button")]
+[node name="LoginButton" parent="RootMargin/RootVBox/BrandBar" unique_id=1866745694 instance=ExtResource("2_button")]
 unique_name_in_owner = true
 layout_mode = 2
 variant = 3
 label_text = "SE CONNECTER"
 
-[node name="Scroll" type="ScrollContainer" parent="RootMargin/RootVBox"]
+[node name="Scroll" type="ScrollContainer" parent="RootMargin/RootVBox" unique_id=817132789]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 horizontal_scroll_mode = 3
 
-[node name="Content" type="VBoxContainer" parent="RootMargin/RootVBox/Scroll"]
+[node name="Content" type="VBoxContainer" parent="RootMargin/RootVBox/Scroll" unique_id=252304676]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 12
 
-[node name="HeroCard" parent="RootMargin/RootVBox/Scroll/Content" instance=ExtResource("3_hero_card")]
+[node name="HeroCard" parent="RootMargin/RootVBox/Scroll/Content" unique_id=2056345676 instance=ExtResource("3_hero_card")]
 unique_name_in_owner = true
 layout_mode = 2
 description_text = "Le monde devient instable et les héros manquent de préparation. Rejoignez un entraînement structuré par missions, gagnez de l’expérience et montez en puissance à chaque validation."
 
-[node name="JourneyPanel" parent="RootMargin/RootVBox/Scroll/Content" instance=ExtResource("4_journey_panel")]
+[node name="JourneyPanel" parent="RootMargin/RootVBox/Scroll/Content" unique_id=229626690 instance=ExtResource("4_journey_panel")]
 unique_name_in_owner = true
 layout_mode = 2

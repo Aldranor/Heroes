@@ -1,22 +1,30 @@
 [gd_scene format=3 uid="uid://b6d33u5sjjkqx"]
 
-[ext_resource type="Script" uid="uid://dyik3tupnhs6h" path="res://scenes/dev/ui_showcase.gd" id="1_script"]
+[ext_resource type="Script" path="res://scenes/dev/ui_showcase.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://ui/components/AppButton.tscn" id="2_button"]
 [ext_resource type="PackedScene" path="res://ui/components/AppStatBar.tscn" id="3_stat_bar"]
 [ext_resource type="PackedScene" path="res://ui/components/AppDialogBox.tscn" id="4_dialog_box"]
-[ext_resource type="PackedScene" path="res://ui/components/AppSpriteAnimator.tscn" id="5_sprite_animator"]
 [ext_resource type="PackedScene" path="res://ui/components/AppTabBar.tscn" id="6_tab_bar"]
-[ext_resource type="PackedScene" path="res://ui/components/AppAuthHeader.tscn" id="7_auth_header"]
 [ext_resource type="PackedScene" path="res://ui/components/AppBadge.tscn" id="8_badge"]
-[ext_resource type="PackedScene" uid="uid://7x1j1o8t4crm" path="res://ui/components/AppBottomNav.tscn" id="9_bottom_nav"]
+[ext_resource type="PackedScene" path="res://ui/components/AppBottomNav.tscn" id="9_bottom_nav"]
 [ext_resource type="PackedScene" path="res://ui/components/AppCard.tscn" id="10_card"]
 [ext_resource type="PackedScene" path="res://ui/components/AppCompanionChip.tscn" id="11_companion_chip"]
-[ext_resource type="PackedScene" path="res://ui/components/AppHeading.tscn" id="12_heading"]
 [ext_resource type="PackedScene" path="res://ui/components/AppPillButton.tscn" id="13_pill_button"]
 [ext_resource type="PackedScene" path="res://ui/components/AppProgressBar.tscn" id="14_progress_bar"]
 [ext_resource type="PackedScene" path="res://ui/components/AppStepPanel.tscn" id="15_step_panel"]
+[ext_resource type="PackedScene" path="res://ui/components/AppScreenHeader.tscn" id="20_screen_header"]
+[ext_resource type="PackedScene" path="res://ui/components/AppQuestCard.tscn" id="21_quest_card"]
+[ext_resource type="PackedScene" path="res://ui/components/AppFlashcard.tscn" id="22_flashcard"]
+[ext_resource type="PackedScene" path="res://ui/components/AppRewardPopup.tscn" id="23_reward_popup"]
+[ext_resource type="PackedScene" path="res://ui/components/AppInventorySlot.tscn" id="24_inv_slot"]
+[ext_resource type="PackedScene" path="res://ui/components/AppTabs.tscn" id="25_tabs"]
+[ext_resource type="PackedScene" path="res://ui/components/AppAvatarDisplay.tscn" id="26_avatar_display"]
+[ext_resource type="PackedScene" path="res://ui/components/AppSceneTransition.tscn" id="27_transition"]
+[ext_resource type="PackedScene" path="res://ui/components/AppChoiceDialog.tscn" id="28_choice_dialog"]
+[ext_resource type="PackedScene" path="res://ui/components/AppCompanionCard.tscn" id="29_companion_card"]
+[ext_resource type="PackedScene" path="res://ui/components/AppListItem.tscn" id="30_list_item"]
 
-[node name="UIShowcase" type="Control" unique_id=1740164895]
+[node name="UIShowcase" type="Control"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -25,16 +33,14 @@ grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_script")
 
-[node name="Background" type="ColorRect" parent="." unique_id=1923575085]
+[node name="Background" type="ColorRect" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
-color = Color(0.101961, 0.0901961, 0.0862745, 1)
+color = Color(0.102, 0.09, 0.086, 1)
 
-[node name="RootMargin" type="MarginContainer" parent="." unique_id=1396717630]
+[node name="RootMargin" type="MarginContainer" parent="."]
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
@@ -46,213 +52,338 @@ theme_override_constants/margin_top = 8
 theme_override_constants/margin_right = 8
 theme_override_constants/margin_bottom = 8
 
-[node name="MainVBox" type="VBoxContainer" parent="RootMargin" unique_id=1305359137]
+[node name="MainVBox" type="VBoxContainer" parent="RootMargin"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_constants/separation = 8
 
-[node name="Scroll" type="ScrollContainer" parent="RootMargin/MainVBox" unique_id=242885777]
+[node name="Scroll" type="ScrollContainer" parent="RootMargin/MainVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 horizontal_scroll_mode = 3
 
-[node name="ContentVBox" type="VBoxContainer" parent="RootMargin/MainVBox/Scroll" unique_id=2103879579]
+[node name="ContentVBox" type="VBoxContainer" parent="RootMargin/MainVBox/Scroll"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 12
 
-[node name="Title" type="Label" parent="RootMargin/MainVBox/Scroll/ContentVBox" unique_id=272984360]
+[node name="Title" type="Label" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
 layout_mode = 2
-theme_type_variation = &"LabelHeading"
+theme_type_variation = "LabelHeading"
 text = "UI Components"
 horizontal_alignment = 1
 
-[node name="HeaderDemo" parent="RootMargin/MainVBox/Scroll/ContentVBox" unique_id=871637258 instance=ExtResource("7_auth_header")]
+[node name="ScreenHeader" parent="RootMargin/MainVBox/Scroll/ContentVBox" instance=ExtResource("20_screen_header")]
+unique_name_in_owner = true
 layout_mode = 2
-header_title = "Heroes Academy"
-header_description = "Catalogue de composants UI"
+screen_title = "Heroes Academy"
 
-[node name="HeadingDemo" parent="RootMargin/MainVBox/Scroll/ContentVBox" unique_id=280686108 instance=ExtResource("12_heading")]
+[node name="H1A" type="Label" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
 layout_mode = 2
-level = 3
+theme_type_variation = "LabelHeading"
 text = "Buttons"
+horizontal_alignment = 1
 
-[node name="ButtonsGrid" type="GridContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox" unique_id=866909244]
+[node name="ButtonsGrid" type="GridContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 2
 
-[node name="PrimaryButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ButtonsGrid" unique_id=2018584665 instance=ExtResource("2_button")]
+[node name="PrimaryButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ButtonsGrid" instance=ExtResource("2_button")]
 unique_name_in_owner = true
 layout_mode = 2
 label_text = "Primary"
 
-[node name="SecondaryButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ButtonsGrid" unique_id=1550381756 instance=ExtResource("2_button")]
+[node name="SecondaryButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ButtonsGrid" instance=ExtResource("2_button")]
 unique_name_in_owner = true
 layout_mode = 2
 variant = 1
 label_text = "Secondary"
 
-[node name="DangerButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ButtonsGrid" unique_id=252106100 instance=ExtResource("2_button")]
+[node name="DangerButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ButtonsGrid" instance=ExtResource("2_button")]
 unique_name_in_owner = true
 layout_mode = 2
 variant = 2
 label_text = "Danger"
 
-[node name="GhostButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ButtonsGrid" unique_id=1225467232 instance=ExtResource("2_button")]
+[node name="GhostButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ButtonsGrid" instance=ExtResource("2_button")]
 unique_name_in_owner = true
 layout_mode = 2
 variant = 3
 label_text = "Ghost"
 
-[node name="DisabledButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ButtonsGrid" unique_id=375437183 instance=ExtResource("2_button")]
+[node name="DisabledButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ButtonsGrid" instance=ExtResource("2_button")]
 unique_name_in_owner = true
 layout_mode = 2
 variant = 4
 label_text = "Disabled"
 
-[node name="ActionsGrid" type="GridContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox" unique_id=1970186685]
+[node name="ActionsGrid" type="GridContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/h_separation = 8
 theme_override_constants/v_separation = 8
 columns = 3
 
-[node name="ToastButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ActionsGrid" unique_id=1717105933 instance=ExtResource("2_button")]
+[node name="ToastButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ActionsGrid" instance=ExtResource("2_button")]
 unique_name_in_owner = true
 layout_mode = 2
 label_text = "Toast"
 
-[node name="ModalButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ActionsGrid" unique_id=967894746 instance=ExtResource("2_button")]
+[node name="ModalButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ActionsGrid" instance=ExtResource("2_button")]
 unique_name_in_owner = true
 layout_mode = 2
 variant = 1
 label_text = "Modal"
 
-[node name="LoadingButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ActionsGrid" unique_id=1667493583 instance=ExtResource("2_button")]
+[node name="LoadingButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ActionsGrid" instance=ExtResource("2_button")]
 unique_name_in_owner = true
 layout_mode = 2
 variant = 3
 label_text = "Loading"
 
-[node name="PillRow" type="HBoxContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox" unique_id=1417806419]
+[node name="RewardButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ActionsGrid" instance=ExtResource("2_button")]
+unique_name_in_owner = true
+layout_mode = 2
+variant = 1
+label_text = "Reward"
+
+[node name="ChoiceButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ActionsGrid" instance=ExtResource("2_button")]
+unique_name_in_owner = true
+layout_mode = 2
+variant = 1
+label_text = "Choice"
+
+[node name="TransitionButton" parent="RootMargin/MainVBox/Scroll/ContentVBox/ActionsGrid" instance=ExtResource("2_button")]
+unique_name_in_owner = true
+layout_mode = 2
+variant = 3
+label_text = "Fade"
+
+[node name="PillRow" type="HBoxContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="PillPrimary" parent="RootMargin/MainVBox/Scroll/ContentVBox/PillRow" unique_id=492513700 instance=ExtResource("13_pill_button")]
+[node name="PillPrimary" parent="RootMargin/MainVBox/Scroll/ContentVBox/PillRow" instance=ExtResource("13_pill_button")]
 layout_mode = 2
 text = "Pill Primary"
 
-[node name="PillSecondary" parent="RootMargin/MainVBox/Scroll/ContentVBox/PillRow" unique_id=1541938139 instance=ExtResource("13_pill_button")]
+[node name="PillSecondary" parent="RootMargin/MainVBox/Scroll/ContentVBox/PillRow" instance=ExtResource("13_pill_button")]
 layout_mode = 2
 text = "Pill Secondary"
 pill_variant = 1
 
-[node name="PillMuted" parent="RootMargin/MainVBox/Scroll/ContentVBox/PillRow" unique_id=1309674666 instance=ExtResource("13_pill_button")]
+[node name="PillMuted" parent="RootMargin/MainVBox/Scroll/ContentVBox/PillRow" instance=ExtResource("13_pill_button")]
 layout_mode = 2
 text = "Pill Muted"
 pill_variant = 2
 
-[node name="BadgesRow" type="HBoxContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox" unique_id=274693802]
+[node name="BadgesRow" type="HBoxContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
 layout_mode = 2
 theme_override_constants/separation = 8
 
-[node name="BadgeInfo" parent="RootMargin/MainVBox/Scroll/ContentVBox/BadgesRow" unique_id=813377079 instance=ExtResource("8_badge")]
+[node name="BadgeInfo" parent="RootMargin/MainVBox/Scroll/ContentVBox/BadgesRow" instance=ExtResource("8_badge")]
 layout_mode = 2
 variant = 4
 badge_text = "Info"
 
-[node name="BadgeSuccess" parent="RootMargin/MainVBox/Scroll/ContentVBox/BadgesRow" unique_id=990609497 instance=ExtResource("8_badge")]
+[node name="BadgeSuccess" parent="RootMargin/MainVBox/Scroll/ContentVBox/BadgesRow" instance=ExtResource("8_badge")]
 layout_mode = 2
 variant = 1
 badge_text = "Success"
 
-[node name="BadgeWarning" parent="RootMargin/MainVBox/Scroll/ContentVBox/BadgesRow" unique_id=160818363 instance=ExtResource("8_badge")]
+[node name="BadgeWarning" parent="RootMargin/MainVBox/Scroll/ContentVBox/BadgesRow" instance=ExtResource("8_badge")]
 layout_mode = 2
 variant = 2
 badge_text = "Warning"
 
-[node name="Bars" type="VBoxContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox" unique_id=1292631344]
+[node name="H1B" type="Label" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
+layout_mode = 2
+theme_type_variation = "LabelHeading"
+text = "Progress"
+horizontal_alignment = 1
+
+[node name="Bars" type="VBoxContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_constants/separation = 6
 
-[node name="HpBar" parent="RootMargin/MainVBox/Scroll/ContentVBox/Bars" unique_id=1052406177 instance=ExtResource("3_stat_bar")]
+[node name="HpBar" parent="RootMargin/MainVBox/Scroll/ContentVBox/Bars" instance=ExtResource("3_stat_bar")]
 unique_name_in_owner = true
 layout_mode = 2
+bar_type = 0
 
-[node name="MpBar" parent="RootMargin/MainVBox/Scroll/ContentVBox/Bars" unique_id=2045207264 instance=ExtResource("3_stat_bar")]
+[node name="MpBar" parent="RootMargin/MainVBox/Scroll/ContentVBox/Bars" instance=ExtResource("3_stat_bar")]
 unique_name_in_owner = true
 layout_mode = 2
 bar_type = 1
 
-[node name="XpBar" parent="RootMargin/MainVBox/Scroll/ContentVBox/Bars" unique_id=1812862666 instance=ExtResource("3_stat_bar")]
+[node name="XpBar" parent="RootMargin/MainVBox/Scroll/ContentVBox/Bars" instance=ExtResource("3_stat_bar")]
 unique_name_in_owner = true
 layout_mode = 2
 bar_type = 2
 
-[node name="ProgressRow" type="VBoxContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox" unique_id=1352935874]
+[node name="ProgressRow" type="VBoxContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
 layout_mode = 2
 theme_override_constants/separation = 6
 
-[node name="ProgressNeutral" parent="RootMargin/MainVBox/Scroll/ContentVBox/ProgressRow" unique_id=1598469752 instance=ExtResource("14_progress_bar")]
+[node name="ProgressNeutral" parent="RootMargin/MainVBox/Scroll/ContentVBox/ProgressRow" instance=ExtResource("14_progress_bar")]
 layout_mode = 2
 value = 62.0
 
-[node name="ProgressSuccess" parent="RootMargin/MainVBox/Scroll/ContentVBox/ProgressRow" unique_id=728273188 instance=ExtResource("14_progress_bar")]
+[node name="ProgressSuccess" parent="RootMargin/MainVBox/Scroll/ContentVBox/ProgressRow" instance=ExtResource("14_progress_bar")]
 layout_mode = 2
 value = 78.0
 bar_variant = 1
 
-[node name="ProgressDanger" parent="RootMargin/MainVBox/Scroll/ContentVBox/ProgressRow" unique_id=667277330 instance=ExtResource("14_progress_bar")]
+[node name="ProgressDanger" parent="RootMargin/MainVBox/Scroll/ContentVBox/ProgressRow" instance=ExtResource("14_progress_bar")]
 layout_mode = 2
 value = 34.0
 bar_variant = 2
 
-[node name="CardDemo" parent="RootMargin/MainVBox/Scroll/ContentVBox" unique_id=978263871 instance=ExtResource("10_card")]
+[node name="H1C" type="Label" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
+layout_mode = 2
+theme_type_variation = "LabelHeading"
+text = "Cards"
+horizontal_alignment = 1
+
+[node name="CardDemo" parent="RootMargin/MainVBox/Scroll/ContentVBox" instance=ExtResource("10_card")]
 layout_mode = 2
 card_title = "Card"
 card_subtitle = "Surface standard"
 
-[node name="CompanionChip" parent="RootMargin/MainVBox/Scroll/ContentVBox" unique_id=297100324 instance=ExtResource("11_companion_chip")]
+[node name="CompanionChip" parent="RootMargin/MainVBox/Scroll/ContentVBox" instance=ExtResource("11_companion_chip")]
 layout_mode = 2
 companion_name = "Ari"
-companion_description = "Spécialiste observatrice"
+companion_description = "Specialiste observatrice"
 is_active_chip = true
 
-[node name="StepPanelDemo" parent="RootMargin/MainVBox/Scroll/ContentVBox" unique_id=1020512589 instance=ExtResource("15_step_panel")]
+[node name="CompanionCard" parent="RootMargin/MainVBox/Scroll/ContentVBox" instance=ExtResource("29_companion_card")]
+layout_mode = 2
+companion_name = "Loup solitaire"
+companion_role = "Eclaireur"
+companion_level = 12
+companion_hp = 85
+
+[node name="StepPanelDemo" parent="RootMargin/MainVBox/Scroll/ContentVBox" instance=ExtResource("15_step_panel")]
 layout_mode = 2
 eyebrow_text = "Etape 1"
 title_text = "Bienvenue"
 description_text = "Panel de progression du flow onboarding."
 
-[node name="DialogBox" parent="RootMargin/MainVBox/Scroll/ContentVBox" unique_id=1937321532 instance=ExtResource("4_dialog_box")]
+[node name="H1D" type="Label" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
+layout_mode = 2
+theme_type_variation = "LabelHeading"
+text = "Navigation"
+horizontal_alignment = 1
+
+[node name="TabsDemo" parent="RootMargin/MainVBox/Scroll/ContentVBox" instance=ExtResource("25_tabs")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="SpritePreviewPanel" type="PanelContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox" unique_id=1664157655]
-custom_minimum_size = Vector2(0, 92)
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="SpritePreviewCenter" type="CenterContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox/SpritePreviewPanel" unique_id=1778299304]
-layout_mode = 2
-size_flags_horizontal = 3
-size_flags_vertical = 3
-
-[node name="SpriteAnimator" parent="RootMargin/MainVBox/Scroll/ContentVBox/SpritePreviewPanel/SpritePreviewCenter" unique_id=2075884371 instance=ExtResource("5_sprite_animator")]
-unique_name_in_owner = true
-
-[node name="BottomTabBar" parent="RootMargin/MainVBox/Scroll/ContentVBox" unique_id=272168141 instance=ExtResource("6_tab_bar")]
+[node name="BottomTabBar" parent="RootMargin/MainVBox/Scroll/ContentVBox" instance=ExtResource("6_tab_bar")]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="BottomNavDemo" parent="RootMargin/MainVBox" unique_id=1710999042 instance=ExtResource("9_bottom_nav")]
+[node name="H1E" type="Label" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
+layout_mode = 2
+theme_type_variation = "LabelHeading"
+text = "Quest / Training"
+horizontal_alignment = 1
+
+[node name="QuestCard" parent="RootMargin/MainVBox/Scroll/ContentVBox" instance=ExtResource("21_quest_card")]
+layout_mode = 2
+quest_title = "Foret maudite"
+quest_description = "Une quete de niveau debutant dans la foret."
+status_text = "PRIORITE"
+cta_text = "EXPLORER"
+
+[node name="FlashcardDemo" parent="RootMargin/MainVBox/Scroll/ContentVBox" instance=ExtResource("22_flashcard")]
+unique_name_in_owner = true
+layout_mode = 2
+custom_minimum_size = Vector2(0, 120)
+
+[node name="H1F" type="Label" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
+layout_mode = 2
+theme_type_variation = "LabelHeading"
+text = "Inventory"
+horizontal_alignment = 1
+
+[node name="InvGrid" type="GridContainer" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
 layout_mode = 2
 size_flags_horizontal = 3
+columns = 4
+theme_override_constants/h_separation = 8
+theme_override_constants/v_separation = 8
+
+[node name="Slot0" parent="RootMargin/MainVBox/Scroll/ContentVBox/InvGrid" instance=ExtResource("24_inv_slot")]
+layout_mode = 2
+item_label = "Epee"
+item_count = 1
+is_empty = false
+
+[node name="Slot1" parent="RootMargin/MainVBox/Scroll/ContentVBox/InvGrid" instance=ExtResource("24_inv_slot")]
+layout_mode = 2
+item_label = "Potion"
+item_count = 3
+is_empty = false
+
+[node name="Slot2" parent="RootMargin/MainVBox/Scroll/ContentVBox/InvGrid" instance=ExtResource("24_inv_slot")]
+layout_mode = 2
+item_label = "Bouclier"
+item_count = 1
+is_empty = false
+
+[node name="Slot3" parent="RootMargin/MainVBox/Scroll/ContentVBox/InvGrid" instance=ExtResource("24_inv_slot")]
+layout_mode = 2
+item_label = "Vide"
+is_empty = true
+
+[node name="H1G" type="Label" parent="RootMargin/MainVBox/Scroll/ContentVBox"]
+layout_mode = 2
+theme_type_variation = "LabelHeading"
+text = "Lists"
+horizontal_alignment = 1
+
+[node name="ListItem1" parent="RootMargin/MainVBox/Scroll/ContentVBox" instance=ExtResource("30_list_item")]
+layout_mode = 2
+icon_text = "★"
+title_text = "Competence devoilee"
+subtitle_text = "Rang S"
+trailing_text = "Nouveau"
+highlight = true
+
+[node name="ListItem2" parent="RootMargin/MainVBox/Scroll/ContentVBox" instance=ExtResource("30_list_item")]
+layout_mode = 2
+icon_text = "⚔"
+title_text = "Attaque foudroyante"
+subtitle_text = "Degats electriques"
+trailing_text = "Lv.5"
+
+[node name="DialogBox" parent="RootMargin/MainVBox/Scroll/ContentVBox" instance=ExtResource("4_dialog_box")]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="AvatarDisplay" parent="RootMargin/MainVBox/Scroll/ContentVBox" instance=ExtResource("26_avatar_display")]
+layout_mode = 2
+
+[node name="BottomNavDemo" parent="RootMargin/MainVBox" instance=ExtResource("9_bottom_nav")]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Transition" parent="." instance=ExtResource("27_transition")]
+unique_name_in_owner = true
+
+[node name="RewardPopup" parent="." instance=ExtResource("23_reward_popup")]
+unique_name_in_owner = true
+visible = false
+
+[node name="ChoiceDialog" parent="." instance=ExtResource("28_choice_dialog")]
+unique_name_in_owner = true
+visible = false

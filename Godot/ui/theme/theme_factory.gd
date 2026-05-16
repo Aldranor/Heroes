@@ -66,6 +66,7 @@ static func save_theme(path: String, theme: Theme) -> void:
 # =========================================================================
 
 static func _apply_button_primary(t: Theme) -> void:
+	var ui_font := _ui_font()
 	var normal := _flat(
 		DesignTokens.Colors.Accent.PRIMARY,
 		DesignTokens.Radius.CHIP,
@@ -105,9 +106,12 @@ static func _apply_button_primary(t: Theme) -> void:
 	t.set_color("font_disabled_color", "Button", DesignTokens.Colors.Text.Disabled.DARK)
 	t.set_color("font_focus_color", "Button", DesignTokens.Colors.Accent.PRIMARY_TEXT)
 	t.set_constant("h_separation", "Button", DesignTokens.Spacing.SM)
+	t.set_font("font", "Button", ui_font)
+	t.set_font_size("font_size", "Button", DesignTokens.Typography.Size.BODY)
 
 
 static func _apply_button_secondary(t: Theme) -> void:
+	var ui_font := _ui_font()
 	# Ghost / outline button — used via theme type variation
 	var normal := _flat(
 		Color.TRANSPARENT,
@@ -154,28 +158,40 @@ static func _apply_button_secondary(t: Theme) -> void:
 	t.set_color("font_disabled_color", type, DesignTokens.Colors.Text.Disabled.DARK)
 	t.set_color("font_focus_color", type, DesignTokens.Colors.Accent.PRIMARY)
 	t.set_constant("h_separation", type, DesignTokens.Spacing.SM)
+	t.set_font("font", type, ui_font)
+	t.set_font_size("font_size", type, DesignTokens.Typography.Size.BODY)
 
 
 static func _apply_label(t: Theme) -> void:
+	var ui_font := _ui_font()
 	t.set_color("font_color", "Label", DesignTokens.Colors.Text.Primary.DARK)
 	t.set_color("font_outline_color", "Label", Color(0, 0, 0, 0))
+	t.set_font("font", "Label", ui_font)
+	t.set_font_size("font_size", "Label", DesignTokens.Typography.Size.BODY)
 
 	var secondary_type := "LabelSecondary"
 	t.set_type_variation(secondary_type, "Label")
 	t.set_color("font_color", secondary_type, DesignTokens.Colors.Text.Secondary.DARK)
+	t.set_font("font", secondary_type, ui_font)
+	t.set_font_size("font_size", secondary_type, DesignTokens.Typography.Size.BODY)
 
 	var muted_type := "LabelMuted"
 	t.set_type_variation(muted_type, "Label")
 	t.set_color("font_color", muted_type, DesignTokens.Colors.Text.Muted.DARK)
+	t.set_font("font", muted_type, ui_font)
+	t.set_font_size("font_size", muted_type, DesignTokens.Typography.Size.BODY_SM)
 
 	var heading_type := "LabelHeading"
 	t.set_type_variation(heading_type, "Label")
 	t.set_color("font_color", heading_type, DesignTokens.Colors.Text.Primary.DARK)
 	t.set_constant("line_spacing", heading_type, 0)
+	t.set_font_size("font_size", heading_type, DesignTokens.Typography.Size.HEADING_LG)
 
 	var eyebrow_type := "LabelEyebrow"
 	t.set_type_variation(eyebrow_type, "Label")
 	t.set_color("font_color", eyebrow_type, DesignTokens.Colors.Text.Secondary.DARK)
+	t.set_font("font", eyebrow_type, ui_font)
+	t.set_font_size("font_size", eyebrow_type, DesignTokens.Typography.Size.LABEL)
 
 
 static func _apply_panel(t: Theme) -> void:
@@ -280,6 +296,7 @@ static func _apply_palette(t: Theme) -> void:
 # =========================================================================
 
 static func _apply_button_primary_light(t: Theme) -> void:
+	var ui_font := _ui_font()
 	var normal := _flat(
 		DesignTokens.Colors.Accent.PRIMARY,
 		DesignTokens.Radius.CHIP,
@@ -309,9 +326,12 @@ static func _apply_button_primary_light(t: Theme) -> void:
 	t.set_color("font_hover_color", "Button", DesignTokens.Colors.Accent.PRIMARY_TEXT)
 	t.set_color("font_pressed_color", "Button", DesignTokens.Colors.Accent.PRIMARY_TEXT)
 	t.set_color("font_disabled_color", "Button", DesignTokens.Colors.Text.Disabled.LIGHT)
+	t.set_font("font", "Button", ui_font)
+	t.set_font_size("font_size", "Button", DesignTokens.Typography.Size.BODY)
 
 
 static func _apply_button_secondary_light(t: Theme) -> void:
+	var ui_font := _ui_font()
 	var normal := _flat(
 		Color.TRANSPARENT,
 		DesignTokens.Radius.CHIP,
@@ -336,16 +356,25 @@ static func _apply_button_secondary_light(t: Theme) -> void:
 	t.set_stylebox("focus", type, hover)
 	t.set_color("font_color", type, DesignTokens.Colors.Text.Primary.LIGHT)
 	t.set_color("font_hover_color", type, DesignTokens.Colors.Text.Primary.LIGHT)
+	t.set_font("font", type, ui_font)
+	t.set_font_size("font_size", type, DesignTokens.Typography.Size.BODY)
 
 
 static func _apply_label_light(t: Theme) -> void:
+	var ui_font := _ui_font()
 	t.set_color("font_color", "Label", DesignTokens.Colors.Text.Primary.LIGHT)
+	t.set_font("font", "Label", ui_font)
+	t.set_font_size("font_size", "Label", DesignTokens.Typography.Size.BODY)
 	var secondary_type := "LabelSecondary"
 	t.set_type_variation(secondary_type, "Label")
 	t.set_color("font_color", secondary_type, DesignTokens.Colors.Text.Secondary.LIGHT)
+	t.set_font("font", secondary_type, ui_font)
+	t.set_font_size("font_size", secondary_type, DesignTokens.Typography.Size.BODY)
 	var muted_type := "LabelMuted"
 	t.set_type_variation(muted_type, "Label")
 	t.set_color("font_color", muted_type, DesignTokens.Colors.Text.Muted.LIGHT)
+	t.set_font("font", muted_type, ui_font)
+	t.set_font_size("font_size", muted_type, DesignTokens.Typography.Size.BODY_SM)
 
 
 static func _apply_panel_light(t: Theme) -> void:
@@ -456,3 +485,8 @@ static func _flat(
 	sb.anti_aliasing = false
 	sb.draw_center = true
 	return sb
+
+static func _ui_font() -> SystemFont:
+	var font := SystemFont.new()
+	font.font_names = PackedStringArray(["Avenir Next", "Trebuchet MS", "Segoe UI", "sans-serif"])
+	return font

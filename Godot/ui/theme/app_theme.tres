@@ -1,5 +1,8 @@
 [gd_resource type="Theme" format=3 uid="uid://cks8xse7ghoxc"]
 
+[sub_resource type="SystemFont" id="sf_ui_body"]
+font_names = PackedStringArray("Avenir Next", "Trebuchet MS", "Segoe UI", "sans-serif")
+
 [sub_resource type="StyleBoxFlat" id="sb_button_primary_disabled"]
 content_margin_left = 24.0
 content_margin_top = 12.0
@@ -274,6 +277,8 @@ Button/colors/font_focus_color = Color(0.047059, 0.039216, 0.035294, 1)
 Button/colors/font_hover_color = Color(0.047059, 0.039216, 0.035294, 1)
 Button/colors/font_pressed_color = Color(0.047059, 0.039216, 0.035294, 1)
 Button/constants/h_separation = 8
+Button/font_sizes/font_size = 16
+Button/fonts/font = SubResource("sf_ui_body")
 Button/styles/disabled = SubResource("sb_button_primary_disabled")
 Button/styles/focus = SubResource("sb_button_primary_hover")
 Button/styles/hover = SubResource("sb_button_primary_hover")
@@ -285,6 +290,8 @@ ButtonSecondary/colors/font_focus_color = Color(0.992157, 0.901961, 0.541176, 1)
 ButtonSecondary/colors/font_hover_color = Color(0.992157, 0.901961, 0.541176, 1)
 ButtonSecondary/colors/font_pressed_color = Color(0.960784, 0.937255, 0.905882, 1)
 ButtonSecondary/constants/h_separation = 8
+ButtonSecondary/font_sizes/font_size = 16
+ButtonSecondary/fonts/font = SubResource("sf_ui_body")
 ButtonSecondary/styles/disabled = SubResource("sb_button_secondary_disabled")
 ButtonSecondary/styles/focus = SubResource("sb_button_secondary_hover")
 ButtonSecondary/styles/hover = SubResource("sb_button_secondary_hover")
@@ -304,10 +311,19 @@ CheckBox/colors/font_pressed_color = Color(0.960784, 0.937255, 0.905882, 1)
 CheckBox/constants/h_separation = 8
 Label/colors/font_color = Color(0.960784, 0.937255, 0.905882, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 0)
+Label/font_sizes/font_size = 16
+Label/fonts/font = SubResource("sf_ui_body")
 LabelEyebrow/colors/font_color = Color(0.74902, 0.662745, 0.560784, 1)
+LabelEyebrow/font_sizes/font_size = 11
+LabelEyebrow/fonts/font = SubResource("sf_ui_body")
 LabelHeading/colors/font_color = Color(0.960784, 0.937255, 0.905882, 1)
+LabelHeading/font_sizes/font_size = 30
 LabelMuted/colors/font_color = Color(0.658824, 0.635294, 0.619608, 1)
+LabelMuted/font_sizes/font_size = 14
+LabelMuted/fonts/font = SubResource("sf_ui_body")
 LabelSecondary/colors/font_color = Color(0.74902, 0.662745, 0.560784, 1)
+LabelSecondary/font_sizes/font_size = 16
+LabelSecondary/fonts/font = SubResource("sf_ui_body")
 LineEdit/colors/caret_color = Color(0.992157, 0.901961, 0.541176, 1)
 LineEdit/colors/font_color = Color(0.960784, 0.937255, 0.905882, 1)
 LineEdit/colors/font_placeholder_color = Color(0.658824, 0.635294, 0.619608, 1)
@@ -315,6 +331,8 @@ LineEdit/colors/selection_color = Color(0.496078, 0.45098, 0.270588, 1)
 LineEdit/styles/focus = SubResource("sb_line_edit_focus")
 LineEdit/styles/normal = SubResource("sb_line_edit_normal")
 LineEdit/styles/read_only = SubResource("sb_line_edit_readonly")
+LinkButton/font_sizes/font_size = 14
+LinkButton/fonts/font = SubResource("sf_ui_body")
 Palette/colors/accent_blue = Color(0.321569, 0.701961, 0.85098, 1)
 Palette/colors/accent_gold = Color(0.992157, 0.901961, 0.541176, 1)
 Palette/colors/accent_green = Color(0.396078, 0.639216, 0.05098, 1)

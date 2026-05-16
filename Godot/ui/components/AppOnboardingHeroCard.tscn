@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://ui/components/AppOnboardingHeroCard.gd" id="1_script"]
+[ext_resource type="Script" path="res://ui/components/app_onboarding_hero_card.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://ui/components/AppButton.tscn" id="2_button"]
 
 [node name="OnboardingHeroCard" type="PanelContainer"]
@@ -15,13 +15,13 @@ theme_override_constants/separation = 16
 [node name="EyebrowLabel" type="Label" parent="Layout"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "ADMISSION"
+text = "SECTION"
 
 [node name="TitleLabel" type="Label" parent="Layout"]
 unique_name_in_owner = true
 layout_mode = 2
 autowrap_mode = 3
-text = "Académie des Héros"
+text = "Titre principal"
 
 [node name="DescriptionLabel" type="Label" parent="Layout"]
 unique_name_in_owner = true
@@ -37,7 +37,7 @@ theme_override_constants/separation = 12
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-label_text = "REJOINDRE L'ACADÉMIE"
+label_text = "ACTION PRINCIPALE"
 
 [node name="LoginRow" type="HBoxContainer" parent="Layout"]
 layout_mode = 2
@@ -50,7 +50,7 @@ text = "Déjà étudiant ?"
 [node name="LoginLink" type="LinkButton" parent="Layout/LoginRow"]
 unique_name_in_owner = true
 layout_mode = 2
-text = "Se connecter"
+text = "Action secondaire"
 
 [node name="RewardsGrid" type="GridContainer" parent="Layout"]
 unique_name_in_owner = true

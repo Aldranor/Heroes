@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3]
 
-[ext_resource type="Script" path="res://ui/components/AppModal.gd" id="1_script"]
+[ext_resource type="Script" path="res://ui/components/app_modal.gd" id="1_script"]
 [ext_resource type="PackedScene" path="res://ui/components/AppButton.tscn" id="2_pixel_button"]
 
 [node name="Modal" type="CanvasLayer"]

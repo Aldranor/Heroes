@@ -1,8 +1,7 @@
-[gd_resource type="Theme" format=3]
+[gd_resource type="Theme" format=3 uid="uid://dmfxr15rf24sh"]
 
 [ext_resource type="FontVariation" path="res://assets/fonts/inter_regular.tres" id="1_inter_regular"]
 [ext_resource type="FontVariation" path="res://assets/fonts/inter_medium.tres" id="2_inter_medium"]
-[ext_resource type="FontVariation" path="res://assets/fonts/inter_semibold.tres" id="3_inter_semibold"]
 
 [sub_resource type="StyleBoxFlat" id="sb_button_normal"]
 content_margin_left = 16.0
@@ -52,6 +51,22 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
+[sub_resource type="StyleBoxFlat" id="sb_line_edit_focus"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.101961, 0.101961, 0.101961, 1)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.988235, 0.882353, 0.545098, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
 [sub_resource type="StyleBoxFlat" id="sb_line_edit"]
 content_margin_left = 12.0
 content_margin_top = 12.0
@@ -68,17 +83,17 @@ corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
 
-[sub_resource type="StyleBoxFlat" id="sb_line_edit_focus"]
+[sub_resource type="StyleBoxFlat" id="sb_option"]
 content_margin_left = 12.0
-content_margin_top = 12.0
+content_margin_top = 10.0
 content_margin_right = 12.0
-content_margin_bottom = 12.0
+content_margin_bottom = 10.0
 bg_color = Color(0.101961, 0.101961, 0.101961, 1)
-border_width_left = 2
-border_width_top = 2
-border_width_right = 2
-border_width_bottom = 2
-border_color = Color(0.988235, 0.882353, 0.545098, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.164706, 0.164706, 0.164706, 1)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
@@ -99,22 +114,6 @@ corner_radius_top_left = 14
 corner_radius_top_right = 14
 corner_radius_bottom_right = 14
 corner_radius_bottom_left = 14
-
-[sub_resource type="StyleBoxFlat" id="sb_option"]
-content_margin_left = 12.0
-content_margin_top = 10.0
-content_margin_right = 12.0
-content_margin_bottom = 10.0
-bg_color = Color(0.101961, 0.101961, 0.101961, 1)
-border_width_left = 1
-border_width_top = 1
-border_width_right = 1
-border_width_bottom = 1
-border_color = Color(0.164706, 0.164706, 0.164706, 1)
-corner_radius_top_left = 8
-corner_radius_top_right = 8
-corner_radius_bottom_right = 8
-corner_radius_bottom_left = 8
 
 [sub_resource type="StyleBoxFlat" id="sb_popup_panel"]
 bg_color = Color(0.0784314, 0.0784314, 0.0784314, 1)
@@ -159,10 +158,10 @@ OptionButton/styles/normal = SubResource("sb_option")
 OptionButton/styles/pressed = SubResource("sb_option")
 Panel/styles/panel = SubResource("sb_panel")
 PopupMenu/colors/font_color = Color(0.960784, 0.960784, 0.960784, 1)
+PopupMenu/colors/font_disabled_color = Color(0.517647, 0.517647, 0.517647, 1)
 PopupMenu/colors/font_hover_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
 PopupMenu/colors/font_pressed_color = Color(0.0392157, 0.0392157, 0.0392157, 1)
 PopupMenu/colors/font_separator_color = Color(0.627451, 0.627451, 0.627451, 1)
-PopupMenu/colors/font_disabled_color = Color(0.517647, 0.517647, 0.517647, 1)
 PopupMenu/fonts/font = ExtResource("1_inter_regular")
 PopupMenu/styles/hover = SubResource("sb_button_hover")
 PopupMenu/styles/labeled_separator_left = SubResource("sb_popup_panel")

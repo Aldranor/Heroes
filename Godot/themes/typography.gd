@@ -1,7 +1,7 @@
 extends Object
 class_name AcademyTypography
 
-const H1_SIZE: int = 36
+const H1_SIZE: int = 30
 const H2_SIZE: int = 28
 const H3_SIZE: int = 22
 
