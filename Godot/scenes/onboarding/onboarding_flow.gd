@@ -129,9 +129,9 @@ func _update_nav_buttons() -> void:
 	var show_flow_nav: bool = not is_welcome and not is_tutorial
 	_bottom_bar.visible = show_flow_nav
 	_skip_button.visible = current_step > 0
-	_skip_button.text = "Passer le tutoriel" if is_tutorial else "Passer la personnalisation"
+	_skip_button.text = tr("Passer le tutoriel") if is_tutorial else tr("Passer la personnalisation")
 	_back_button.visible = current_step > 0 and not is_welcome
-	_next_button.text = "Commencer l'aventure!" if is_tutorial else "Suivant"
+	_next_button.text = tr("Commencer l'aventure!") if is_tutorial else tr("Suivant")
 	_step_container.offset_top = 48.0 if current_step > 0 else 0.0
 	_step_container.offset_bottom = -56.0 if show_flow_nav else 0.0
 
@@ -235,7 +235,7 @@ func _complete_onboarding() -> void:
 	if response.success:
 		SceneManager.change_scene(SceneManager.DASHBOARD, SceneManager.TransitionStyle.FADE)
 	else:
-		_show_error("Erreur lors de la finalisation : %s" % str(response.data))
+		_show_error(tr("Erreur lors de la finalisation : %s") % str(response.data))
 
 func _show_error(message: String) -> void:
 	push_error(message)

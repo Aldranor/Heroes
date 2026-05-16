@@ -23,8 +23,6 @@ class_name AppOnboardingJourneyPanel
 @onready var _title_label: Label = %TitleLabel
 @onready var _rows: VBoxContainer = %Rows
 
-const FONT_DISPLAY: Font = preload("res://assets/fonts/cormorant_semibold.tres")
-
 func _ready() -> void:
 	_apply_panel_style()
 	_apply_text_style()
@@ -46,7 +44,7 @@ func setup(data: Dictionary) -> void:
 
 func _apply_panel_style() -> void:
 	var panel := StyleBoxFlat.new()
-	panel.bg_color = Color(0.13, 0.10, 0.09, 0.92)
+	panel.bg_color = DesignTokens.Colors.Card.Dark.BG_END
 	panel.border_color = DesignTokens.Colors.PanelTokens.Dark.BORDER
 	panel.border_width_left = 1
 	panel.border_width_top = 1
@@ -61,10 +59,7 @@ func _apply_panel_style() -> void:
 
 func _apply_text_style() -> void:
 	_eyebrow_label.theme_type_variation = "LabelEyebrow"
-	_eyebrow_label.add_theme_font_size_override("font_size", DesignTokens.Typography.Size.LABEL)
-	_title_label.add_theme_font_override("font", FONT_DISPLAY)
-	_title_label.add_theme_font_size_override("font_size", DesignTokens.Typography.Size.HEADING_LG)
-	_title_label.add_theme_color_override("font_color", DesignTokens.Colors.Text.Primary.DARK)
+	_title_label.theme_type_variation = "LabelDisplayLg"
 
 func _render_rows() -> void:
 	_rows.visible = journey_items.size() > 0
@@ -77,26 +72,23 @@ func _render_rows() -> void:
 
 		var line := ColorRect.new()
 		line.custom_minimum_size = Vector2(0, 1)
-		line.color = Color(1, 1, 1, 0.12)
+		line.color = DesignTokens.Colors.Card.Dark.BORDER
 		box.add_child(line)
 
 		var kicker := Label.new()
 		kicker.text = str(item.get("kicker", ""))
 		kicker.theme_type_variation = "LabelEyebrow"
-		kicker.add_theme_font_size_override("font_size", DesignTokens.Typography.Size.LABEL)
 		box.add_child(kicker)
 
 		var title := Label.new()
 		title.text = str(item.get("title", ""))
-		title.theme_type_variation = "Label"
-		title.add_theme_font_size_override("font_size", DesignTokens.Typography.Size.BODY_LG)
+		title.theme_type_variation = "LabelPrimaryLg"
 		box.add_child(title)
 
 		var desc := Label.new()
 		desc.text = str(item.get("desc", ""))
 		desc.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		desc.theme_type_variation = "LabelMuted"
-		desc.add_theme_font_size_override("font_size", DesignTokens.Typography.Size.BODY_SM)
 		box.add_child(desc)
 
 		_rows.add_child(box)

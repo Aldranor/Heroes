@@ -155,7 +155,7 @@ func _show_detail_for_slug(slug: String) -> void:
 			_detail_name.text = str(comp.get("name", ""))
 			_detail_category.text = str(comp.get("category", ""))
 			_detail_description.text = str(comp.get("description", ""))
-			_detail_personality.text = "Personnalité : %s" % str(comp.get("personality", ""))
+			_detail_personality.text = tr("Personnalité : %s") % str(comp.get("personality", ""))
 
 			var stats: Dictionary = comp.get("stats", {})
 			var hp: int = int(stats.get("hp", 0))

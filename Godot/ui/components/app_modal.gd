@@ -35,8 +35,8 @@ func _ready() -> void:
 		_confirm_button.set("button_type", 0)
 	if _cancel_button.has_method("set"):
 		_cancel_button.set("button_type", 1)
-	_confirm_button.text = "Confirmer"
-	_cancel_button.text = "Annuler"
+	_confirm_button.text = tr("Confirmer")
+	_cancel_button.text = tr("Annuler")
 	_confirm_button.pressed.connect(_on_confirm_pressed)
 	_cancel_button.pressed.connect(_on_cancel_pressed)
 	_play_appear_animation()

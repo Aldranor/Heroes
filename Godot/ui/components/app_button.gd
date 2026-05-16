@@ -27,12 +27,14 @@ const APP_THEME: Theme = preload("res://ui/theme/app_theme.tres")
 @export var label_text: String = "Button":
 	set(value):
 		label_text = value
-		text = label_text
+		if is_node_ready():
+			text = label_text
 
 @export var leading_icon: Texture2D:
 	set(value):
 		leading_icon = value
-		icon = leading_icon
+		if is_node_ready():
+			icon = leading_icon
 
 func _ready() -> void:
 	theme = APP_THEME
@@ -64,9 +66,9 @@ func _apply_variant() -> void:
 func _apply_danger_variant() -> void:
 	var normal := _flat(Color(220.0 / 255.0, 38.0 / 255.0, 38.0 / 255.0, 0.92), Color.TRANSPARENT, 0)
 	var hover := _flat(Color(239.0 / 255.0, 68.0 / 255.0, 68.0 / 255.0, 0.95), Color.TRANSPARENT, 0)
-	var pressed := _flat(Color(185.0 / 255.0, 28.0 / 255.0, 28.0 / 255.0, 0.95), Color.TRANSPARENT, 0)
+	var pressed_style := _flat(Color(185.0 / 255.0, 28.0 / 255.0, 28.0 / 255.0, 0.95), Color.TRANSPARENT, 0)
 	var disabled_style := _flat(Color(1, 1, 1, 0.06), Color.TRANSPARENT, 0)
-	_set_button_styles(normal, hover, pressed, disabled_style)
+	_set_button_styles(normal, hover, pressed_style, disabled_style)
 	add_theme_color_override("font_color", Color("fff7ed"))
 	add_theme_color_override("font_hover_color", Color("ffffff"))
 	add_theme_color_override("font_pressed_color", Color("fff7ed"))

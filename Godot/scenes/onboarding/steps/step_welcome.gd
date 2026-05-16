@@ -24,8 +24,7 @@ func _ready() -> void:
 	_play_enter_animation()
 
 func _style_brand_bar() -> void:
-	_brand_label.theme_type_variation = "LabelEyebrow"
-	_brand_label.add_theme_font_size_override("font_size", DesignTokens.Typography.Size.BODY_SM)
+	_brand_label.theme_type_variation = "LabelBrand"
 
 func _wire_actions() -> void:
 	_hero_card.cta_pressed.connect(_on_start_pressed)
@@ -38,7 +37,8 @@ func _configure_components() -> void:
 		"title_text": "Académie des Héros",
 		"description_text": "Le monde devient instable et les héros manquent de préparation. Rejoignez un entraînement structuré par missions, gagnez de l’expérience et montez en puissance à chaque validation.",
 		"cta_text": "REJOINDRE L'ACADÉMIE",
-		"login_text": "Se connecter"
+		"login_text": "Se connecter",
+		"reward_lines": HERO_REWARD_LINES
 	})
 	_journey_panel.setup({
 		"eyebrow_text": "VOTRE PARCOURS",

@@ -20,21 +20,21 @@ func _on_register_pressed() -> void:
 	var confirm: String = _confirm_input.text
 
 	if display_name.is_empty():
-		_error_label.text = "Nom requis"
+		_error_label.text = tr("Nom requis")
 		return
 	if not _validate_email(email):
-		_error_label.text = "Email invalide"
+		_error_label.text = tr("Adresse email invalide")
 		return
 	if password.length() < 8:
-		_error_label.text = "8 caracteres minimum"
+		_error_label.text = tr("8 caracteres minimum")
 		return
 	if password != confirm:
-		_error_label.text = "Mots de passe differents"
+		_error_label.text = tr("Mots de passe differents")
 		return
 
 	_error_label.text = ""
 	_set_form_enabled(false)
-	LoadingOverlay.show("Inscription...")
+	LoadingOverlay.show(tr("Inscription..."))
 
 	var response: ApiResponse = await AuthService.register(email, password, display_name)
 
@@ -49,7 +49,7 @@ func _on_register_pressed() -> void:
 			ApiClient.set_auth_token(token)
 		await SceneManager.go_to_menu()
 	else:
-		var msg: String = str(response.data.get("message", "Erreur d'inscription"))
+		var msg: String = str(response.data.get("message", tr("Erreur d'inscription")))
 		AppToast.show_toast(msg, AppToast.Type.ERROR)
 		_error_label.text = msg
 

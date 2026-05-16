@@ -70,29 +70,29 @@ static func _apply_button_primary(t: Theme) -> void:
 	var normal := _flat(
 		DesignTokens.Colors.Accent.PRIMARY,
 		DesignTokens.Radius.CHIP,
-		DesignTokens.ComponentSizes.Button.LG_PAD_H,
-		DesignTokens.ComponentSizes.Button.LG_PAD_V,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_H,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_V,
 		0, Color.TRANSPARENT
 	)
 	var hover := _flat(
 		DesignTokens.Colors.Accent.PRIMARY_HOVER,
 		DesignTokens.Radius.CHIP,
-		DesignTokens.ComponentSizes.Button.LG_PAD_H,
-		DesignTokens.ComponentSizes.Button.LG_PAD_V,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_H,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_V,
 		0, Color.TRANSPARENT
 	)
 	var pressed := _flat(
 		DesignTokens.Colors.Accent.PRIMARY.darkened(0.1),
 		DesignTokens.Radius.CHIP,
-		DesignTokens.ComponentSizes.Button.LG_PAD_H,
-		DesignTokens.ComponentSizes.Button.LG_PAD_V,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_H,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_V,
 		0, Color.TRANSPARENT
 	)
 	var disabled := _flat(
 		Color(1, 1, 1, 0.06),
 		DesignTokens.Radius.CHIP,
-		DesignTokens.ComponentSizes.Button.LG_PAD_H,
-		DesignTokens.ComponentSizes.Button.LG_PAD_V,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_H,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_V,
 		0, Color.TRANSPARENT
 	)
 	t.set_stylebox("normal", "Button", normal)
@@ -116,32 +116,32 @@ static func _apply_button_secondary(t: Theme) -> void:
 	var normal := _flat(
 		Color.TRANSPARENT,
 		DesignTokens.Radius.CHIP,
-		DesignTokens.ComponentSizes.Button.LG_PAD_H,
-		DesignTokens.ComponentSizes.Button.LG_PAD_V,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_H,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_V,
 		int(DesignTokens.Borders.WIDTH_THIN),
 		DesignTokens.Colors.Card.Dark.BORDER
 	)
 	var hover := _flat(
 		Color(1, 1, 1, 0.06),
 		DesignTokens.Radius.CHIP,
-		DesignTokens.ComponentSizes.Button.LG_PAD_H,
-		DesignTokens.ComponentSizes.Button.LG_PAD_V,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_H,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_V,
 		int(DesignTokens.Borders.WIDTH_THIN),
 		DesignTokens.Colors.Card.Dark.BORDER_HOVER
 	)
 	var pressed := _flat(
 		Color(1, 1, 1, 0.04),
 		DesignTokens.Radius.CHIP,
-		DesignTokens.ComponentSizes.Button.LG_PAD_H,
-		DesignTokens.ComponentSizes.Button.LG_PAD_V,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_H,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_V,
 		int(DesignTokens.Borders.WIDTH_THIN),
 		DesignTokens.Colors.Card.Dark.BORDER
 	)
 	var disabled := _flat(
 		Color.TRANSPARENT,
 		DesignTokens.Radius.CHIP,
-		DesignTokens.ComponentSizes.Button.LG_PAD_H,
-		DesignTokens.ComponentSizes.Button.LG_PAD_V,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_H,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_V,
 		int(DesignTokens.Borders.WIDTH_THIN),
 		Color(1, 1, 1, 0.04)
 	)
@@ -164,6 +164,7 @@ static func _apply_button_secondary(t: Theme) -> void:
 
 static func _apply_label(t: Theme) -> void:
 	var ui_font := _ui_font()
+	var display_font := _display_font()
 	t.set_color("font_color", "Label", DesignTokens.Colors.Text.Primary.DARK)
 	t.set_color("font_outline_color", "Label", Color(0, 0, 0, 0))
 	t.set_font("font", "Label", ui_font)
@@ -192,6 +193,47 @@ static func _apply_label(t: Theme) -> void:
 	t.set_color("font_color", eyebrow_type, DesignTokens.Colors.Text.Secondary.DARK)
 	t.set_font("font", eyebrow_type, ui_font)
 	t.set_font_size("font_size", eyebrow_type, DesignTokens.Typography.Size.LABEL)
+
+	var brand_type := "LabelBrand"
+	t.set_type_variation(brand_type, "Label")
+	t.set_color("font_color", brand_type, DesignTokens.Colors.Text.Primary.DARK)
+	t.set_font("font", brand_type, ui_font)
+	t.set_font_size("font_size", brand_type, DesignTokens.Typography.Size.BODY_SM)
+
+	var secondary_lg_type := "LabelSecondaryLg"
+	t.set_type_variation(secondary_lg_type, "Label")
+	t.set_color("font_color", secondary_lg_type, DesignTokens.Colors.Text.Secondary.DARK)
+	t.set_font("font", secondary_lg_type, ui_font)
+	t.set_font_size("font_size", secondary_lg_type, DesignTokens.Typography.Size.BODY_LG)
+
+	var primary_sm_type := "LabelPrimarySm"
+	t.set_type_variation(primary_sm_type, "Label")
+	t.set_color("font_color", primary_sm_type, DesignTokens.Colors.Text.Primary.DARK)
+	t.set_font("font", primary_sm_type, ui_font)
+	t.set_font_size("font_size", primary_sm_type, DesignTokens.Typography.Size.BODY_SM)
+
+	var primary_lg_type := "LabelPrimaryLg"
+	t.set_type_variation(primary_lg_type, "Label")
+	t.set_color("font_color", primary_lg_type, DesignTokens.Colors.Text.Primary.DARK)
+	t.set_font("font", primary_lg_type, ui_font)
+	t.set_font_size("font_size", primary_lg_type, DesignTokens.Typography.Size.BODY_LG)
+
+	var display_lg_type := "LabelDisplayLg"
+	t.set_type_variation(display_lg_type, "Label")
+	t.set_font("font", display_lg_type, display_font)
+	t.set_font_size("font_size", display_lg_type, DesignTokens.Typography.Size.HEADING_LG)
+	t.set_color("font_color", display_lg_type, DesignTokens.Colors.Text.Primary.DARK)
+
+	var display_hero_type := "LabelDisplayHero"
+	t.set_type_variation(display_hero_type, "Label")
+	t.set_font("font", display_hero_type, display_font)
+	t.set_font_size("font_size", display_hero_type, DesignTokens.Typography.Size.HERO)
+	t.set_color("font_color", display_hero_type, DesignTokens.Colors.Text.Primary.DARK)
+
+	t.set_font("font", "LinkButton", ui_font)
+	t.set_font_size("font_size", "LinkButton", DesignTokens.Typography.Size.BODY_SM)
+	t.set_color("font_color", "LinkButton", DesignTokens.Colors.Text.Primary.DARK)
+	t.set_color("font_hover_color", "LinkButton", DesignTokens.Colors.Accent.PRIMARY)
 
 
 static func _apply_panel(t: Theme) -> void:
@@ -300,22 +342,22 @@ static func _apply_button_primary_light(t: Theme) -> void:
 	var normal := _flat(
 		DesignTokens.Colors.Accent.PRIMARY,
 		DesignTokens.Radius.CHIP,
-		DesignTokens.ComponentSizes.Button.LG_PAD_H,
-		DesignTokens.ComponentSizes.Button.LG_PAD_V,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_H,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_V,
 		0, Color.TRANSPARENT
 	)
 	var hover := _flat(
 		DesignTokens.Colors.Accent.PRIMARY_HOVER,
 		DesignTokens.Radius.CHIP,
-		DesignTokens.ComponentSizes.Button.LG_PAD_H,
-		DesignTokens.ComponentSizes.Button.LG_PAD_V,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_H,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_V,
 		0, Color.TRANSPARENT
 	)
 	var pressed := _flat(
 		DesignTokens.Colors.Accent.PRIMARY.darkened(0.1),
 		DesignTokens.Radius.CHIP,
-		DesignTokens.ComponentSizes.Button.LG_PAD_H,
-		DesignTokens.ComponentSizes.Button.LG_PAD_V,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_H,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_V,
 		0, Color.TRANSPARENT
 	)
 	t.set_stylebox("normal", "Button", normal)
@@ -335,16 +377,16 @@ static func _apply_button_secondary_light(t: Theme) -> void:
 	var normal := _flat(
 		Color.TRANSPARENT,
 		DesignTokens.Radius.CHIP,
-		DesignTokens.ComponentSizes.Button.LG_PAD_H,
-		DesignTokens.ComponentSizes.Button.LG_PAD_V,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_H,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_V,
 		int(DesignTokens.Borders.WIDTH_THIN),
 		DesignTokens.Colors.PanelTokens.Light.BORDER
 	)
 	var hover := _flat(
 		Color(0, 0, 0, 0.04),
 		DesignTokens.Radius.CHIP,
-		DesignTokens.ComponentSizes.Button.LG_PAD_H,
-		DesignTokens.ComponentSizes.Button.LG_PAD_V,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_H,
+		DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_V,
 		int(DesignTokens.Borders.WIDTH_THIN),
 		DesignTokens.Colors.Card.Light.BORDER_HOVER
 	)
@@ -352,7 +394,7 @@ static func _apply_button_secondary_light(t: Theme) -> void:
 	t.set_type_variation(type, "Button")
 	t.set_stylebox("normal", type, normal)
 	t.set_stylebox("hover", type, hover)
-	t.set_stylebox("pressed", type, _flat(Color(0, 0, 0, 0.06), DesignTokens.Radius.CHIP, DesignTokens.ComponentSizes.Button.LG_PAD_H, DesignTokens.ComponentSizes.Button.LG_PAD_V, int(DesignTokens.Borders.WIDTH_THIN), DesignTokens.Colors.PanelTokens.Light.BORDER))
+	t.set_stylebox("pressed", type, _flat(Color(0, 0, 0, 0.06), DesignTokens.Radius.CHIP, DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_H, DesignTokens.ComponentSizes.ButtonTokens.LG_PAD_V, int(DesignTokens.Borders.WIDTH_THIN), DesignTokens.Colors.PanelTokens.Light.BORDER))
 	t.set_stylebox("focus", type, hover)
 	t.set_color("font_color", type, DesignTokens.Colors.Text.Primary.LIGHT)
 	t.set_color("font_hover_color", type, DesignTokens.Colors.Text.Primary.LIGHT)
@@ -362,6 +404,7 @@ static func _apply_button_secondary_light(t: Theme) -> void:
 
 static func _apply_label_light(t: Theme) -> void:
 	var ui_font := _ui_font()
+	var display_font := _display_font()
 	t.set_color("font_color", "Label", DesignTokens.Colors.Text.Primary.LIGHT)
 	t.set_font("font", "Label", ui_font)
 	t.set_font_size("font_size", "Label", DesignTokens.Typography.Size.BODY)
@@ -375,6 +418,53 @@ static func _apply_label_light(t: Theme) -> void:
 	t.set_color("font_color", muted_type, DesignTokens.Colors.Text.Muted.LIGHT)
 	t.set_font("font", muted_type, ui_font)
 	t.set_font_size("font_size", muted_type, DesignTokens.Typography.Size.BODY_SM)
+
+	var eyebrow_type := "LabelEyebrow"
+	t.set_type_variation(eyebrow_type, "Label")
+	t.set_color("font_color", eyebrow_type, DesignTokens.Colors.Text.Secondary.LIGHT)
+	t.set_font("font", eyebrow_type, ui_font)
+	t.set_font_size("font_size", eyebrow_type, DesignTokens.Typography.Size.LABEL)
+
+	var brand_type := "LabelBrand"
+	t.set_type_variation(brand_type, "Label")
+	t.set_color("font_color", brand_type, DesignTokens.Colors.Text.Primary.LIGHT)
+	t.set_font("font", brand_type, ui_font)
+	t.set_font_size("font_size", brand_type, DesignTokens.Typography.Size.BODY_SM)
+
+	var secondary_lg_type := "LabelSecondaryLg"
+	t.set_type_variation(secondary_lg_type, "Label")
+	t.set_color("font_color", secondary_lg_type, DesignTokens.Colors.Text.Secondary.LIGHT)
+	t.set_font("font", secondary_lg_type, ui_font)
+	t.set_font_size("font_size", secondary_lg_type, DesignTokens.Typography.Size.BODY_LG)
+
+	var primary_sm_type := "LabelPrimarySm"
+	t.set_type_variation(primary_sm_type, "Label")
+	t.set_color("font_color", primary_sm_type, DesignTokens.Colors.Text.Primary.LIGHT)
+	t.set_font("font", primary_sm_type, ui_font)
+	t.set_font_size("font_size", primary_sm_type, DesignTokens.Typography.Size.BODY_SM)
+
+	var primary_lg_type := "LabelPrimaryLg"
+	t.set_type_variation(primary_lg_type, "Label")
+	t.set_color("font_color", primary_lg_type, DesignTokens.Colors.Text.Primary.LIGHT)
+	t.set_font("font", primary_lg_type, ui_font)
+	t.set_font_size("font_size", primary_lg_type, DesignTokens.Typography.Size.BODY_LG)
+
+	var display_lg_type := "LabelDisplayLg"
+	t.set_type_variation(display_lg_type, "Label")
+	t.set_font("font", display_lg_type, display_font)
+	t.set_font_size("font_size", display_lg_type, DesignTokens.Typography.Size.HEADING_LG)
+	t.set_color("font_color", display_lg_type, DesignTokens.Colors.Text.Primary.LIGHT)
+
+	var display_hero_type := "LabelDisplayHero"
+	t.set_type_variation(display_hero_type, "Label")
+	t.set_font("font", display_hero_type, display_font)
+	t.set_font_size("font_size", display_hero_type, DesignTokens.Typography.Size.HERO)
+	t.set_color("font_color", display_hero_type, DesignTokens.Colors.Text.Primary.LIGHT)
+
+	t.set_font("font", "LinkButton", ui_font)
+	t.set_font_size("font_size", "LinkButton", DesignTokens.Typography.Size.BODY_SM)
+	t.set_color("font_color", "LinkButton", DesignTokens.Colors.Text.Primary.LIGHT)
+	t.set_color("font_hover_color", "LinkButton", DesignTokens.Colors.Text.Secondary.LIGHT)
 
 
 static func _apply_panel_light(t: Theme) -> void:
@@ -490,3 +580,6 @@ static func _ui_font() -> SystemFont:
 	var font := SystemFont.new()
 	font.font_names = PackedStringArray(["Avenir Next", "Trebuchet MS", "Segoe UI", "sans-serif"])
 	return font
+
+static func _display_font() -> Font:
+	return preload("res://assets/fonts/cormorant_semibold.tres")

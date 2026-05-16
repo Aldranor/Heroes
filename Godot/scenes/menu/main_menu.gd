@@ -49,7 +49,7 @@ func _create_card(data: Dictionary) -> PanelContainer:
 	hbox.add_child(icon_label)
 
 	var text_label: Label = Label.new()
-	text_label.text = str(data.get("label", ""))
+	text_label.text = tr(str(data.get("label", "")))
 	text_label.size_flags_horizontal = 3
 	text_label.vertical_alignment = VERTICAL_ALIGNMENT_CENTER
 	hbox.add_child(text_label)
@@ -67,7 +67,7 @@ func _navigate_to_card(scene_key: String) -> void:
 		"dashboard":
 			SceneManager.go_to_dashboard()
 		_:
-			AppToast.show_toast("Coming soon!", AppToast.Type.INFO)
+			AppToast.show_toast(tr("Coming soon!"), AppToast.Type.INFO)
 
 func _on_settings_pressed() -> void:
 	SceneManager.go_to_settings(SceneManager.TransitionStyle.SLIDE_LEFT)
@@ -80,7 +80,7 @@ func _on_coins_changed(amount: int) -> void:
 
 func _refresh_user_display() -> void:
 	var user: User = GameState.current_user
-	_name_label.text = user.name if user.name != "" else "Aventurier"
-	_level_label.text = "Niv. %d" % user.level
+	_name_label.text = user.name if user.name != "" else tr("Aventurier")
+	_level_label.text = tr("Niv. %d") % user.level
 	_xp_bar.set_values(user.xp, user.xp_to_next_level)
 	_coins_label.text = "★ %d" % user.coins

@@ -1,5 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://cks8xse7ghoxc"]
 
+[ext_resource type="Font" path="res://assets/fonts/cormorant_semibold.tres" id="1_display_font"]
+
 [sub_resource type="SystemFont" id="sf_ui_body"]
 font_names = PackedStringArray("Avenir Next", "Trebuchet MS", "Segoe UI", "sans-serif")
 
@@ -324,6 +326,24 @@ LabelMuted/fonts/font = SubResource("sf_ui_body")
 LabelSecondary/colors/font_color = Color(0.74902, 0.662745, 0.560784, 1)
 LabelSecondary/font_sizes/font_size = 16
 LabelSecondary/fonts/font = SubResource("sf_ui_body")
+LabelDisplayHero/colors/font_color = Color(0.960784, 0.937255, 0.905882, 1)
+LabelDisplayHero/font_sizes/font_size = 48
+LabelDisplayHero/fonts/font = ExtResource("1_display_font")
+LabelDisplayLg/colors/font_color = Color(0.960784, 0.937255, 0.905882, 1)
+LabelDisplayLg/font_sizes/font_size = 30
+LabelDisplayLg/fonts/font = ExtResource("1_display_font")
+LabelBrand/colors/font_color = Color(0.960784, 0.937255, 0.905882, 1)
+LabelBrand/font_sizes/font_size = 14
+LabelBrand/fonts/font = SubResource("sf_ui_body")
+LabelSecondaryLg/colors/font_color = Color(0.74902, 0.662745, 0.560784, 1)
+LabelSecondaryLg/font_sizes/font_size = 18
+LabelSecondaryLg/fonts/font = SubResource("sf_ui_body")
+LabelPrimarySm/colors/font_color = Color(0.960784, 0.937255, 0.905882, 1)
+LabelPrimarySm/font_sizes/font_size = 14
+LabelPrimarySm/fonts/font = SubResource("sf_ui_body")
+LabelPrimaryLg/colors/font_color = Color(0.960784, 0.937255, 0.905882, 1)
+LabelPrimaryLg/font_sizes/font_size = 18
+LabelPrimaryLg/fonts/font = SubResource("sf_ui_body")
 LineEdit/colors/caret_color = Color(0.992157, 0.901961, 0.541176, 1)
 LineEdit/colors/font_color = Color(0.960784, 0.937255, 0.905882, 1)
 LineEdit/colors/font_placeholder_color = Color(0.658824, 0.635294, 0.619608, 1)
@@ -333,6 +353,8 @@ LineEdit/styles/normal = SubResource("sb_line_edit_normal")
 LineEdit/styles/read_only = SubResource("sb_line_edit_readonly")
 LinkButton/font_sizes/font_size = 14
 LinkButton/fonts/font = SubResource("sf_ui_body")
+LinkButton/colors/font_color = Color(0.960784, 0.937255, 0.905882, 1)
+LinkButton/colors/font_hover_color = Color(0.992157, 0.901961, 0.541176, 1)
 Palette/colors/accent_blue = Color(0.321569, 0.701961, 0.85098, 1)
 Palette/colors/accent_gold = Color(0.992157, 0.901961, 0.541176, 1)
 Palette/colors/accent_green = Color(0.396078, 0.639216, 0.05098, 1)

@@ -1,75 +1,171 @@
-[gd_scene load_steps=3 format=3]
+[gd_scene load_steps=4 format=3 uid="uid://b6d33u5sjjkqu"]
 
 [ext_resource type="Script" path="res://scenes/auth/login.gd" id="1_script"]
-[ext_resource type="PackedScene" path="res://ui/components/AppButton.tscn" id="2_pixel_button"]
+[ext_resource type="Theme" path="res://ui/theme/app_theme.tres" id="2_theme"]
+[ext_resource type="PackedScene" path="res://ui/components/AppButton.tscn" id="3_button"]
 
 [node name="Login" type="Control"]
+layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("2_theme")
 script = ExtResource("1_script")
 
-[node name="Center" type="CenterContainer" parent="."]
+[node name="Margin" type="MarginContainer" parent="."]
+layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-offset_left = 24
-offset_top = 24
-offset_right = -24
-offset_bottom = -24
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 48
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 28
 
-[node name="VBox" type="VBoxContainer" parent="Center"]
-size_flags_horizontal = 4
-size_flags_vertical = 4
-
-[node name="SpacerTop" type="Control" parent="Center/VBox"]
+[node name="VBox" type="VBoxContainer" parent="Margin"]
+layout_mode = 2
+size_flags_horizontal = 3
 size_flags_vertical = 3
+alignment = 1
+theme_override_constants/separation = 28
 
-[node name="LogoTitle" type="Label" parent="Center/VBox"]
+[node name="HeaderArea" type="VBoxContainer" parent="Margin/VBox"]
+layout_mode = 2
 size_flags_horizontal = 4
-text = "Codex"
+alignment = 1
+theme_override_constants/separation = 12
+
+[node name="LogoIcon" type="Label" parent="Margin/VBox/HeaderArea"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 64)
+text = "⚔"
 horizontal_alignment = 1
+vertical_alignment = 1
+theme_type_variation = "LabelDisplayHero"
 
-[node name="EmailInput" type="LineEdit" parent="Center/VBox"]
+[node name="BrandName" type="Label" parent="Margin/VBox/HeaderArea"]
+layout_mode = 2
+text = "HEROES"
+horizontal_alignment = 1
+theme_type_variation = "LabelDisplayLg"
+
+[node name="BrandTagline" type="Label" parent="Margin/VBox/HeaderArea"]
+layout_mode = 2
+text = "Academy"
+horizontal_alignment = 1
+theme_type_variation = "LabelEyebrow"
+
+[node name="Card" type="PanelContainer" parent="Margin/VBox"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 44)
+layout_mode = 2
 size_flags_horizontal = 4
-placeholder_text = "Email"
+theme_type_variation = "CardPanel"
+
+[node name="CardVBox" type="VBoxContainer" parent="Margin/VBox/Card"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 3
+add_theme_constant_override("margin_left", 28)
+add_theme_constant_override("margin_right", 28)
+add_theme_constant_override("margin_top", 28)
+add_theme_constant_override("margin_bottom", 28)
+
+[node name="WelcomeTitle" type="Label" parent="Margin/VBox/Card/CardVBox"]
+layout_mode = 2
+text = "Connecte-toi"
+horizontal_alignment = 1
+theme_type_variation = "LabelHeading"
+
+[node name="WelcomeDesc" type="Label" parent="Margin/VBox/Card/CardVBox"]
+layout_mode = 2
+text = "Entre ton email et ton mot de passe pour commencer l'aventure."
+horizontal_alignment = 1
+theme_type_variation = "LabelMuted"
+autowrap_mode = 3
+
+[node name="SepA" type="Control" parent="Margin/VBox/Card/CardVBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 20)
+
+[node name="EmailLabel" type="Label" parent="Margin/VBox/Card/CardVBox"]
+layout_mode = 2
+text = "Email"
+theme_type_variation = "LabelEyebrow"
+
+[node name="EmailInput" type="LineEdit" parent="Margin/VBox/Card/CardVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "ton.email@exemple.com"
 virtual_keyboard_type = 2
 
-[node name="PasswordInput" type="LineEdit" parent="Center/VBox"]
+[node name="SepB" type="Control" parent="Margin/VBox/Card/CardVBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 16)
+
+[node name="PwdLabel" type="Label" parent="Margin/VBox/Card/CardVBox"]
+layout_mode = 2
+text = "Mot de passe"
+theme_type_variation = "LabelEyebrow"
+
+[node name="PasswordInput" type="LineEdit" parent="Margin/VBox/Card/CardVBox"]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 44)
-size_flags_horizontal = 4
-placeholder_text = "Mot de passe"
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "••••••••"
 secret = true
 virtual_keyboard_type = 4
 
-[node name="ErrorLabel" type="Label" parent="Center/VBox"]
+[node name="ActionRow" type="HBoxContainer" parent="Margin/VBox/Card/CardVBox"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="RememberCheck" type="CheckBox" parent="Margin/VBox/Card/CardVBox/ActionRow"]
 unique_name_in_owner = true
-size_flags_horizontal = 4
+layout_mode = 2
+text = "Se souvenir"
+
+[node name="ForgotLink" type="Button" parent="Margin/VBox/Card/CardVBox/ActionRow"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 10
+text = "Mot de passe oublié ?"
+theme_type_variation = "ButtonSecondary"
+
+[node name="SepC" type="Control" parent="Margin/VBox/Card/CardVBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 20)
+
+[node name="ErrorLabel" type="Label" parent="Margin/VBox/Card/CardVBox"]
+unique_name_in_owner = true
+layout_mode = 2
 text = ""
 horizontal_alignment = 1
+theme_type_variation = "LabelMuted"
+visible = false
 
-[node name="LoginButton" parent="Center/VBox" instance=ExtResource("2_pixel_button")]
+[node name="LoginButton" parent="Margin/VBox/Card/CardVBox" instance=ExtResource("3_button")]
 unique_name_in_owner = true
-size_flags_horizontal = 4
-text = "Connexion"
+layout_mode = 2
+size_flags_horizontal = 3
+label_text = "Se connecter"
 
-[node name="RegisterButton" parent="Center/VBox" instance=ExtResource("2_pixel_button")]
+[node name="SepD" type="Control" parent="Margin/VBox"]
+layout_mode = 2
+custom_minimum_size = Vector2(0, 4)
+
+[node name="RegisterHint" type="Label" parent="Margin/VBox"]
+layout_mode = 2
+text = "Pas encore de compte ?"
+horizontal_alignment = 1
+theme_type_variation = "LabelMuted"
+
+[node name="RegisterLink" type="Button" parent="Margin/VBox"]
 unique_name_in_owner = true
-size_flags_horizontal = 4
-button_type = 1
-text = "Creer un compte"
-
-[node name="ForgotLink" type="Button" parent="Center/VBox"]
-unique_name_in_owner = true
-size_flags_horizontal = 4
-text = "Mot de passe oublie ?"
-
-[node name="SpacerBottom" type="Control" parent="Center/VBox"]
-size_flags_vertical = 3
+layout_mode = 2
+text = "Créer un compte"
+theme_type_variation = "ButtonSecondary"

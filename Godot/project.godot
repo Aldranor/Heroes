@@ -29,6 +29,8 @@ AuthService="*res://scripts/services/auth_service.gd"
 MockMode="*res://scripts/autoload/mock_mode.gd"
 OnboardingService="*res://scripts/services/onboarding_service.gd"
 
+I18n="*res://scripts/autoload/i18n.gd"
+
 [display]
 
 window/size/viewport_width=360
@@ -44,6 +46,12 @@ enabled=PackedStringArray("res://addons/gut/plugin.cfg")
 [gui]
 
 theme/custom="res://ui/theme/app_theme.tres"
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://locales/translations.fr.translation", "res://locales/translations.en.translation")
+locale/locale_filter_mode=0
+locale/test="fr"
 
 [input]
 

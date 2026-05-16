@@ -2,7 +2,7 @@ extends Node
 
 const TOKEN_STORAGE_KEY: String = "secure_auth_token"
 
-static func login(email: String, password: String) -> ApiResponse:
+func login(email: String, password: String) -> ApiResponse:
 	var payload: Dictionary = {
 		"email": email,
 		"password": password
@@ -14,7 +14,7 @@ static func login(email: String, password: String) -> ApiResponse:
 			ApiClient.set_auth_token(token)
 	return response
 
-static func register(email: String, password: String, display_name: String) -> ApiResponse:
+func register(email: String, password: String, display_name: String) -> ApiResponse:
 	var payload: Dictionary = {
 		"email": email,
 		"password": password,
@@ -22,12 +22,12 @@ static func register(email: String, password: String, display_name: String) -> A
 	}
 	return await ApiClient.post("/auth/register", payload)
 
-static func logout() -> ApiResponse:
+func logout() -> ApiResponse:
 	var response: ApiResponse = await ApiClient.post("/auth/logout", {})
 	ApiClient.clear_auth_token()
 	return response
 
-static func refresh_user() -> ApiResponse:
+func refresh_user() -> ApiResponse:
 	var response: ApiResponse = await ApiClient.request_get("/me")
 	if response.success and typeof(response.data) == TYPE_DICTIONARY:
 		var response_data: Dictionary = response.data
@@ -38,13 +38,13 @@ static func refresh_user() -> ApiResponse:
 			GameState.set_current_user_from_dict(payload)
 	return response
 
-static func is_authenticated() -> bool:
+func is_authenticated() -> bool:
 	if ApiClient.auth_token != "":
 		return true
 	var stored_token: String = str(LocalStorage.load_data(TOKEN_STORAGE_KEY, ""))
 	return stored_token != ""
 
-static func _extract_token(data: Variant) -> String:
+func _extract_token(data: Variant) -> String:
 	if typeof(data) != TYPE_DICTIONARY:
 		return ""
 	var dict_data: Dictionary = data

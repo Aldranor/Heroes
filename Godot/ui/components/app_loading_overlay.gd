@@ -15,7 +15,9 @@ func _ready() -> void:
 	_spinner_timer.timeout.connect(_on_spinner_timer_timeout)
 
 ## Affiche l'overlay de chargement.
-func show_loading(message: String = "Chargement...") -> void:
+func show_loading(message: String = "") -> void:
+	if message.is_empty():
+		message = tr("Chargement...")
 	_message_label.text = message
 	_spinner_index = 0
 	_spinner_label.text = _spinner_frames[_spinner_index]
@@ -28,7 +30,7 @@ func hide_loading() -> void:
 	_set_layer_visible(false)
 
 ## Alias ergonomique singleton.
-func show(message: String = "Chargement...") -> void:
+func show(message: String = "") -> void:
 	show_loading(message)
 
 ## Alias ergonomique singleton.

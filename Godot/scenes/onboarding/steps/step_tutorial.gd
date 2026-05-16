@@ -60,13 +60,13 @@ func _show_slide(index: int) -> void:
 	_current_slide = clampi(index, 0, SLIDES.size() - 1)
 	var slide: Dictionary = SLIDES[_current_slide]
 
-	_slide_title.text = str(slide.get("title", ""))
-	_slide_description.text = str(slide.get("description", ""))
+	_slide_title.text = tr(str(slide.get("title", "")))
+	_slide_description.text = tr(str(slide.get("description", "")))
 	_slide_icon.color = slide.get("icon_color", Color.WHITE)
 	_icon_label.text = str(slide.get("icon_symbol", "?"))
 
 	var is_last: bool = _current_slide >= SLIDES.size() - 1
-	_action_button.text = "Commencer l'aventure !" if is_last else "Suivant"
+	_action_button.text = tr("Commencer l'aventure !") if is_last else tr("Suivant")
 	_prev_button.visible = _current_slide > 0
 
 	_update_page_indicator()
