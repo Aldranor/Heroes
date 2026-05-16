@@ -12,7 +12,7 @@ const CARDS: Array[Dictionary] = [
 @onready var _avatar_rect: TextureRect = %AvatarRect
 @onready var _name_label: Label = %NameLabel
 @onready var _level_label: Label = %LevelLabel
-@onready var _xp_bar: StatBar = %XpBar
+@onready var _xp_bar: AppStatBar = %XpBar
 @onready var _coins_label: Label = %CoinsLabel
 @onready var _card_container: VBoxContainer = %CardContainer
 @onready var _settings_button: Button = %SettingsButton
@@ -67,7 +67,7 @@ func _navigate_to_card(scene_key: String) -> void:
 		"dashboard":
 			SceneManager.go_to_dashboard()
 		_:
-			Toast.show_toast("Coming soon!", Toast.Type.INFO)
+			AppToast.show_toast("Coming soon!", AppToast.Type.INFO)
 
 func _on_settings_pressed() -> void:
 	SceneManager.go_to_settings(SceneManager.TransitionStyle.SLIDE_LEFT)

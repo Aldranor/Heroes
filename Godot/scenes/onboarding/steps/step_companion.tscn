@@ -19,7 +19,8 @@ grow_vertical = 2
 unique_name_in_owner = true
 text = "Choisis ton compagnon"
 horizontal_alignment = 1
-size_flags_horizontal = 4
+size_flags_horizontal = 3
+theme_type_variation = &"LabelHeading"
 
 [node name="CardContainer" type="HBoxContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
@@ -30,8 +31,9 @@ size_flags_vertical = 1
 [node name="DetailPanel" type="PanelContainer" parent="VBoxContainer"]
 unique_name_in_owner = true
 custom_minimum_size = Vector2(0, 180)
-size_flags_horizontal = 4
+size_flags_horizontal = 3
 size_flags_vertical = 0
+theme_type_variation = &"CardPanel"
 
 [node name="DetailVBox" type="VBoxContainer" parent="VBoxContainer/DetailPanel"]
 size_flags_horizontal = 4
@@ -44,8 +46,8 @@ horizontal_alignment = 1
 [node name="DetailCategory" type="Label" parent="VBoxContainer/DetailPanel/DetailVBox"]
 unique_name_in_owner = true
 text = ""
-modulate = Color(0.831, 0.686, 0.216, 1)
 horizontal_alignment = 1
+theme_type_variation = &"LabelEyebrow"
 
 [node name="DetailDescription" type="Label" parent="VBoxContainer/DetailPanel/DetailVBox"]
 unique_name_in_owner = true

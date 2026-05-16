@@ -24,7 +24,7 @@ AudioManager="*res://scripts/autoload/audio_manager.gd"
 SceneManager="*res://scripts/autoload/scene_manager.gd"
 LocalStorage="*res://scripts/autoload/local_storage.gd"
 EventBus="*res://scripts/autoload/event_bus.gd"
-LoadingOverlay="*res://scenes/shared/ui/loading_overlay.tscn"
+LoadingOverlay="*res://ui/components/AppLoadingOverlay.tscn"
 AuthService="*res://scripts/services/auth_service.gd"
 MockMode="*res://scripts/autoload/mock_mode.gd"
 OnboardingService="*res://scripts/services/onboarding_service.gd"
@@ -43,7 +43,7 @@ enabled=PackedStringArray("res://addons/gut/plugin.cfg")
 
 [gui]
 
-theme/custom="res://themes/main_theme.tres"
+theme/custom="res://ui/theme/app_theme.tres"
 
 [input]
 

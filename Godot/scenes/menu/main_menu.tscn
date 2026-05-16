@@ -1,8 +1,8 @@
 [gd_scene load_steps=4 format=3]
 
 [ext_resource type="Script" path="res://scenes/menu/main_menu.gd" id="1_script"]
-[ext_resource type="PackedScene" path="res://scenes/shared/ui/pixel_button.tscn" id="2_pixel_button"]
-[ext_resource type="PackedScene" path="res://scenes/shared/ui/stat_bar.tscn" id="3_stat_bar"]
+[ext_resource type="PackedScene" path="res://ui/components/AppButton.tscn" id="2_pixel_button"]
+[ext_resource type="PackedScene" path="res://ui/components/AppStatBar.tscn" id="3_stat_bar"]
 
 [node name="MainMenu" type="Control"]
 anchors_preset = 15

@@ -27,7 +27,7 @@ func test_sprite_loader_load_local_loads_existing_image() -> void:
 	DirAccess.remove_absolute(path)
 
 func test_sprite_loader_configure_animator_sets_frame_dimensions() -> void:
-	var animator: SpriteAnimator = SpriteAnimator.new()
+	var animator: AppSpriteAnimator = AppSpriteAnimator.new()
 	SpriteLoader.configure_animator(animator, _test_texture)
 
 	assert_eq(animator.frame_width, 80)
@@ -37,7 +37,7 @@ func test_sprite_loader_configure_animator_sets_frame_dimensions() -> void:
 	animator.free()
 
 func test_sprite_loader_configure_animator_sets_all_animation_states() -> void:
-	var animator: SpriteAnimator = SpriteAnimator.new()
+	var animator: AppSpriteAnimator = AppSpriteAnimator.new()
 	SpriteLoader.configure_animator(animator, _test_texture)
 
 	var states: Dictionary = animator.animation_states
@@ -51,7 +51,7 @@ func test_sprite_loader_configure_animator_sets_all_animation_states() -> void:
 	animator.free()
 
 func test_sprite_loader_configure_animator_idle_properties() -> void:
-	var animator: SpriteAnimator = SpriteAnimator.new()
+	var animator: AppSpriteAnimator = AppSpriteAnimator.new()
 	SpriteLoader.configure_animator(animator, _test_texture)
 
 	var idle: Dictionary = animator.animation_states["idle"]
@@ -62,7 +62,7 @@ func test_sprite_loader_configure_animator_idle_properties() -> void:
 	animator.free()
 
 func test_sprite_loader_configure_animator_attack_properties() -> void:
-	var animator: SpriteAnimator = SpriteAnimator.new()
+	var animator: AppSpriteAnimator = AppSpriteAnimator.new()
 	SpriteLoader.configure_animator(animator, _test_texture)
 
 	var attack: Dictionary = animator.animation_states["attack"]
@@ -73,7 +73,7 @@ func test_sprite_loader_configure_animator_attack_properties() -> void:
 	animator.free()
 
 func test_sprite_loader_configure_animator_starts_playing_idle() -> void:
-	var animator: SpriteAnimator = SpriteAnimator.new()
+	var animator: AppSpriteAnimator = AppSpriteAnimator.new()
 	SpriteLoader.configure_animator(animator, _test_texture)
 	assert_eq(animator.current_state, "idle")
 	animator.free()

@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scenes/auth/login.gd" id="1_script"]
-[ext_resource type="PackedScene" path="res://scenes/shared/ui/pixel_button.tscn" id="2_pixel_button"]
+[ext_resource type="PackedScene" path="res://ui/components/AppButton.tscn" id="2_pixel_button"]
 
 [node name="Login" type="Control"]
 anchors_preset = 15

@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3]
+[gd_scene load_steps=3 format=3]
 
 [ext_resource type="Script" path="res://scenes/onboarding/onboarding_flow.gd" id="1_script"]
+[ext_resource type="PackedScene" path="res://ui/components/AppButton.tscn" id="2_app_button"]
 
 [node name="OnboardingFlow" type="Control"]
 anchors_preset = 15
@@ -11,25 +12,29 @@ script = ExtResource("1_script")
 [node name="TopBar" type="HBoxContainer" parent="."]
 anchors_preset = 10
 anchor_right = 1.0
-offset_bottom = 40.0
+offset_bottom = 48.0
 grow_horizontal = 2
+theme_override_constants/separation = 8
 
 [node name="ProgressContainer" type="HBoxContainer" parent="TopBar"]
 unique_name_in_owner = true
-size_flags_horizontal = 4
+layout_mode = 2
+size_flags_horizontal = 3
 alignment = 1
+theme_override_constants/separation = 4
 
-[node name="SkipButton" type="Button" parent="TopBar"]
+[node name="SkipButton" parent="TopBar" instance=ExtResource("2_app_button")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(60, 32)
+layout_mode = 2
 text = "Passer"
+variant = 1
 
 [node name="StepContainer" type="Control" parent="."]
 unique_name_in_owner = true
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_top = 40.0
+offset_top = 48.0
 offset_bottom = -56.0
 grow_horizontal = 2
 grow_vertical = 2
@@ -45,21 +50,23 @@ anchor_bottom = 1.0
 offset_top = -56.0
 offset_bottom = 0.0
 grow_horizontal = 2
+theme_override_constants/separation = 8
 
-[node name="BackButton" type="Button" parent="BottomBar"]
+[node name="BackButton" parent="BottomBar" instance=ExtResource("2_app_button")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(80, 44)
+layout_mode = 2
 text = "Précédent"
 visible = false
+variant = 1
 
 [node name="Spacer" type="Control" parent="BottomBar"]
+layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="NextButton" type="Button" parent="BottomBar"]
+[node name="NextButton" parent="BottomBar" instance=ExtResource("2_app_button")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(180, 44)
+layout_mode = 2
 text = "Suivant"
-size_flags_horizontal = 4
 
 [node name="LoadingOverlay" type="Control" parent="."]
 unique_name_in_owner = true

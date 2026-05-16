@@ -38,7 +38,7 @@ static func load_remote(url: String) -> Texture2D:
 		_save_to_cache(tex, cache_path)
 	return tex
 
-static func configure_animator(animator: SpriteAnimator, texture: Texture2D) -> void:
+static func configure_animator(animator: AppSpriteAnimator, texture: Texture2D) -> void:
 	var layout: Dictionary = _load_layout()
 
 	animator.sheet_texture = texture

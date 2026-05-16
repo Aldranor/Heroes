@@ -2,8 +2,8 @@ extends Control
 
 @onready var _email_input: LineEdit = %EmailInput
 @onready var _password_input: LineEdit = %PasswordInput
-@onready var _login_button: PixelButton = %LoginButton
-@onready var _register_button: PixelButton = %RegisterButton
+@onready var _login_button: AppButton = %LoginButton
+@onready var _register_button: AppButton = %RegisterButton
 @onready var _forgot_link: Button = %ForgotLink
 @onready var _error_label: Label = %ErrorLabel
 
@@ -37,14 +37,14 @@ func _on_login_pressed() -> void:
 		await SceneManager.go_to_menu()
 	else:
 		var msg: String = str(response.data.get("message", "Erreur de connexion"))
-		Toast.show_toast(msg, Toast.Type.ERROR)
+		AppToast.show_toast(msg, AppToast.Type.ERROR)
 		_error_label.text = msg
 
 func _on_register_pressed() -> void:
 	SceneManager.go_to_register(SceneManager.TransitionStyle.SLIDE_LEFT)
 
 func _on_forgot_pressed() -> void:
-	Toast.show_toast("Fonctionnalite a venir", Toast.Type.INFO)
+	AppToast.show_toast("Fonctionnalite a venir", AppToast.Type.INFO)
 
 func _validate_email(email: String) -> bool:
 	return email.contains("@") and email.contains(".")

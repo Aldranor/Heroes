@@ -7,7 +7,7 @@ var _current_texture: Texture2D = null
 
 @onready var _sprite_selector: OptionButton = %SpriteSelector
 @onready var _anim_selector: OptionButton = %AnimSelector
-@onready var _sprite_animator: SpriteAnimator = %SpriteAnimator
+@onready var _sprite_animator: AppSpriteAnimator = %AppSpriteAnimator
 @onready var _header: Label = $Header
 @onready var _control_panel: PanelContainer = $ControlPanel
 @onready var _status_bar: PanelContainer = $StatusBar

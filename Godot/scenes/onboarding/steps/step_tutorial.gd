@@ -6,19 +6,19 @@ const SLIDES: Array[Dictionary] = [
 	{
 		"title": "Étudie pour gagner en puissance",
 		"description": "Réponds aux questions sur le code de la route pour gagner de l'expérience et renforcer ton équipe.",
-		"icon_color": Color("d4af37"),
+		"icon_color": DesignTokens.Colors.Accent.PRIMARY,
 		"icon_symbol": "📖"
 	},
 	{
 		"title": "Combats les esprits de la route",
 		"description": "Utilise tes connaissances pour vaincre les esprits dans des combats stratégiques au tour par tour.",
-		"icon_color": Color("b03030"),
+		"icon_color": DesignTokens.Colors.Specialization.DANGERS,
 		"icon_symbol": "⚔"
 	},
 	{
 		"title": "Progresse sur la carte d'aventure",
 		"description": "Débloque de nouvelles zones, découvre des défis et deviens le maître du code de la route.",
-		"icon_color": Color("2e8b57"),
+		"icon_color": DesignTokens.Colors.Specialization.SAFETY,
 		"icon_symbol": "🗺"
 	},
 ]
@@ -52,7 +52,7 @@ func _build_page_indicator() -> void:
 	for i: int in range(SLIDES.size()):
 		var dot: ColorRect = ColorRect.new()
 		dot.custom_minimum_size = Vector2(8, 8)
-		dot.color = Color("4a4540")
+		dot.color = DesignTokens.Colors.PanelTokens.Dark.BORDER
 		dot.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 		_page_indicator.add_child(dot)
 
@@ -77,7 +77,7 @@ func _update_page_indicator() -> void:
 	for i: int in range(dots.size()):
 		if dots[i] is ColorRect:
 			var dot: ColorRect = dots[i]
-			dot.color = Color("d4af37") if i == _current_slide else Color("4a4540")
+			dot.color = DesignTokens.Colors.Accent.PRIMARY if i == _current_slide else DesignTokens.Colors.PanelTokens.Dark.BORDER
 
 func _play_slide_animation() -> void:
 	var tween: Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_QUART)

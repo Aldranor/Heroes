@@ -27,8 +27,10 @@ const MAX_ATK: int = 30
 const MAX_DEF: int = 20
 const MAX_SPD: int = 30
 
+
 func _ready() -> void:
 	_build_cards()
+
 
 func set_data(data: Dictionary) -> void:
 	if data.has("selected_companion_slug") and str(data["selected_companion_slug"]) != "":
@@ -36,10 +38,12 @@ func set_data(data: Dictionary) -> void:
 		_refresh_selection()
 		_show_detail_for_slug(selected_slug)
 
+
 func get_data() -> Dictionary:
 	return {
 		"selected_companion_slug": selected_slug,
 	}
+
 
 func _build_cards() -> void:
 	var companions: Array[Dictionary] = MOCK.get_starter_companions()
@@ -67,11 +71,11 @@ func _build_cards() -> void:
 		name_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		vbox.add_child(name_label)
 
-		var rarity_color: Color = MOCK.get_rarity_color(str(comp.get("rarity", "common")))
+		var rarity_color: Color = _rarity_to_token(comp.get("rarity", "common"))
 		var rarity_label: Label = Label.new()
 		rarity_label.text = str(comp.get("rarity", "")).capitalize()
 		rarity_label.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
-		rarity_label.modulate = rarity_color
+		rarity_label.add_theme_color_override("font_color", rarity_color)
 		rarity_label.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		vbox.add_child(rarity_label)
 
@@ -83,11 +87,13 @@ func _build_cards() -> void:
 		if slug == selected_slug:
 			_apply_card_highlight(card, true)
 
+
 func _on_card_input(event: InputEvent, slug: String, card: PanelContainer) -> void:
 	if event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT:
 		_select_companion(slug, card)
 	if event is InputEventScreenTouch and event.pressed:
 		_select_companion(slug, card)
+
 
 func _select_companion(slug: String, card: PanelContainer) -> void:
 	selected_slug = slug
@@ -97,6 +103,7 @@ func _select_companion(slug: String, card: PanelContainer) -> void:
 	_show_detail_for_slug(slug)
 	_animate_card(card)
 	emit_changed()
+
 
 func _refresh_selection() -> void:
 	for child: Node in _card_container.get_children():
@@ -115,23 +122,32 @@ func _refresh_selection() -> void:
 			if not is_selected:
 				_apply_card_highlight(card, false)
 
+
 func _apply_card_highlight(card: PanelContainer, selected: bool) -> void:
 	var style: StyleBoxFlat = StyleBoxFlat.new()
+	style.anti_aliasing = false
+	style.set_corner_radius_all(int(round(DesignTokens.Radius.CARD_SM)))
+	style.content_margin_left = DesignTokens.Spacing.SM
+	style.content_margin_top = DesignTokens.Spacing.SM
+	style.content_margin_right = DesignTokens.Spacing.SM
+	style.content_margin_bottom = DesignTokens.Spacing.SM
+	var bw := int(DesignTokens.Borders.WIDTH_THIN)
 	if selected:
-		style.bg_color = Color("2a2a2a")
-		style.border_color = Color("d4af37")
-		style.border_width_left = 2
-		style.border_width_top = 2
-		style.border_width_right = 2
-		style.border_width_bottom = 2
+		style.bg_color = DesignTokens.Colors.Card.Dark.BG_START
+		style.border_color = DesignTokens.Colors.Card.Dark.BORDER_SELECTED
+		style.border_width_left = bw
+		style.border_width_top = bw
+		style.border_width_right = bw
+		style.border_width_bottom = bw
 	else:
-		style.bg_color = Color("1a1a1a")
-		style.border_color = Color("4a4540")
-		style.border_width_left = 1
-		style.border_width_top = 1
-		style.border_width_right = 1
-		style.border_width_bottom = 1
+		style.bg_color = DesignTokens.Colors.Card.Dark.BG_START * Color(1, 1, 1, 0.6)
+		style.border_color = DesignTokens.Colors.Card.Dark.BORDER
+		style.border_width_left = bw
+		style.border_width_top = bw
+		style.border_width_right = bw
+		style.border_width_bottom = bw
 	card.add_theme_stylebox_override("panel", style)
+
 
 func _show_detail_for_slug(slug: String) -> void:
 	for comp: Dictionary in MOCK.get_starter_companions():
@@ -147,29 +163,45 @@ func _show_detail_for_slug(slug: String) -> void:
 			var defense: int = int(stats.get("defense", 0))
 			var spd: int = int(stats.get("speed", 0))
 
-			_update_stat_bar(_detail_hp_bar, _detail_hp_value, hp, MAX_HP, Color("b03030"))
-			_update_stat_bar(_detail_attack_bar, _detail_attack_value, atk, MAX_ATK, Color("d4af37"))
-			_update_stat_bar(_detail_defense_bar, _detail_defense_value, defense, MAX_DEF, Color("4682b4"))
-			_update_stat_bar(_detail_speed_bar, _detail_speed_value, spd, MAX_SPD, Color("2e8b57"))
+			_update_stat_bar(_detail_hp_bar, _detail_hp_value, hp, MAX_HP, DesignTokens.Colors.Specialization.DANGERS)
+			_update_stat_bar(_detail_attack_bar, _detail_attack_value, atk, MAX_ATK, DesignTokens.Colors.Accent.PRIMARY)
+			_update_stat_bar(_detail_defense_bar, _detail_defense_value, defense, MAX_DEF, DesignTokens.Colors.Specialization.SPEED)
+			_update_stat_bar(_detail_speed_bar, _detail_speed_value, spd, MAX_SPD, DesignTokens.Colors.Specialization.SAFETY)
 			break
 
-func _update_stat_bar(bar: Control, label: Label, value: int, max_val: int, color: Color) -> void:
+
+func _update_stat_bar(bar: Control, label: Label, value: int, max_val: int, fill_color: Color) -> void:
 	label.text = "%d / %d" % [value, max_val]
 	if bar.has_method("set_values"):
 		bar.set_values(value, max_val)
-	else:
-		var progress: ProgressBar = bar.get_node_or_null("ProgressBar")
-		if progress != null:
-			progress.max_value = max_val
-			progress.value = value
-			var fill: StyleBoxFlat = StyleBoxFlat.new()
-			fill.bg_color = color
-			progress.add_theme_stylebox_override("fill", fill)
+	var progress: ProgressBar = bar.get_node_or_null("ProgressBar")
+	if progress != null:
+		progress.max_value = max_val
+		progress.value = value
+		var fill: StyleBoxFlat = StyleBoxFlat.new()
+		fill.bg_color = fill_color
+		fill.anti_aliasing = false
+		fill.set_corner_radius_all(int(round(DesignTokens.Radius.PILL)))
+		progress.add_theme_stylebox_override("fill", fill)
+
 
 func _animate_card(card: PanelContainer) -> void:
 	var tween: Tween = create_tween().set_ease(Tween.EASE_OUT).set_trans(Tween.TRANS_BOUNCE)
 	card.scale = Vector2(1.05, 1.05)
 	tween.tween_property(card, "scale", Vector2(1, 1), 0.3)
 
+
 func emit_changed() -> void:
 	data_changed.emit(get_data())
+
+
+func _rarity_to_token(rarity: Variant) -> Color:
+	match str(rarity):
+		"legendary":
+			return DesignTokens.Colors.Accent.PRIMARY
+		"rare":
+			return DesignTokens.Colors.Specialization.SIGNS
+		"uncommon":
+			return DesignTokens.Colors.Specialization.SAFETY
+		_:
+			return DesignTokens.Colors.Text.Muted.DARK

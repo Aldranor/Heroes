@@ -1,0 +1,149 @@
+[gd_scene format=3 uid="uid://7x1j1o8t4crm"]
+
+[ext_resource type="Script" uid="uid://c24rf18dexo0o" path="res://ui/components/AppBottomNav.gd" id="1_script"]
+
+[node name="BottomNav" type="PanelContainer" unique_id=611111183]
+mouse_default_cursor_shape = 2
+script = ExtResource("1_script")
+
+[node name="TabsContainer" type="HBoxContainer" parent="." unique_id=867913342]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 2
+
+[node name="Tab0" type="PanelContainer" parent="TabsContainer" unique_id=1823279717]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+
+[node name="VBox" type="VBoxContainer" parent="TabsContainer/Tab0" unique_id=1947306137]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="Indicator0" type="PanelContainer" parent="TabsContainer/Tab0/VBox" unique_id=719707556]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActiveBar" type="PanelContainer" parent="TabsContainer/Tab0/VBox/Indicator0" unique_id=684561960]
+custom_minimum_size = Vector2(20, 3)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label0" type="Label" parent="TabsContainer/Tab0/VBox" unique_id=699616302]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tab1" type="PanelContainer" parent="TabsContainer" unique_id=1386305750]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+
+[node name="VBox" type="VBoxContainer" parent="TabsContainer/Tab1" unique_id=287256350]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="Indicator1" type="PanelContainer" parent="TabsContainer/Tab1/VBox" unique_id=167674379]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActiveBar" type="PanelContainer" parent="TabsContainer/Tab1/VBox/Indicator1" unique_id=1336711513]
+custom_minimum_size = Vector2(20, 3)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label1" type="Label" parent="TabsContainer/Tab1/VBox" unique_id=2060031861]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tab2" type="PanelContainer" parent="TabsContainer" unique_id=1567777781]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+
+[node name="VBox" type="VBoxContainer" parent="TabsContainer/Tab2" unique_id=1204967062]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="Indicator2" type="PanelContainer" parent="TabsContainer/Tab2/VBox" unique_id=1415177295]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActiveBar" type="PanelContainer" parent="TabsContainer/Tab2/VBox/Indicator2" unique_id=221183945]
+custom_minimum_size = Vector2(20, 3)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label2" type="Label" parent="TabsContainer/Tab2/VBox" unique_id=1638762921]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Tab3" type="PanelContainer" parent="TabsContainer" unique_id=1299251042]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+mouse_default_cursor_shape = 2
+
+[node name="VBox" type="VBoxContainer" parent="TabsContainer/Tab3" unique_id=115489803]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+theme_override_constants/separation = 3
+alignment = 1
+
+[node name="Indicator3" type="PanelContainer" parent="TabsContainer/Tab3/VBox" unique_id=656436847]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 24)
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="ActiveBar" type="PanelContainer" parent="TabsContainer/Tab3/VBox/Indicator3" unique_id=876433617]
+custom_minimum_size = Vector2(20, 3)
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 0
+
+[node name="Label3" type="Label" parent="TabsContainer/Tab3/VBox" unique_id=223952601]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+horizontal_alignment = 1
+vertical_alignment = 1

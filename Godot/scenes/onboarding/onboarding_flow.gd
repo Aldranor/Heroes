@@ -44,7 +44,7 @@ func _build_progress_dots() -> void:
 	for i: int in range(dot_count):
 		var dot: ColorRect = ColorRect.new()
 		dot.custom_minimum_size = Vector2(10, 10)
-		dot.color = Color("4a4540")
+		dot.color = DesignTokens.Colors.PanelTokens.Dark.BORDER
 		dot.size_flags_horizontal = Control.SIZE_SHRINK_CENTER
 		_progress_container.add_child(dot)
 		_progress_dots.append(dot)
@@ -119,9 +119,9 @@ func _update_progress() -> void:
 		var step_index: int = i + 1
 		var dot: ColorRect = _progress_dots[i]
 		if step_index <= current_step:
-			dot.color = Color("d4af37")
+			dot.color = DesignTokens.Colors.Accent.PRIMARY
 		else:
-			dot.color = Color("4a4540")
+			dot.color = DesignTokens.Colors.PanelTokens.Dark.BORDER
 
 func _update_nav_buttons() -> void:
 	var is_welcome: bool = current_step == 0
@@ -237,5 +237,5 @@ func _complete_onboarding() -> void:
 
 func _show_error(message: String) -> void:
 	push_error(message)
-	if has_node("%Toast"):
-		%Toast.show_toast(message, 0)
+	if has_node("%AppToast"):
+		%AppToast.show_toast(message, 0)

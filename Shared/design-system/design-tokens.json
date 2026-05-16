@@ -1,0 +1,417 @@
+{
+  "$schema": "https://tr.designtokens.org/schemas/token-group.json",
+  "description": "Design tokens extracted from the Heroes Laravel UI (Flux + Tailwind v4 + custom CSS). Intended to be consumed by Godot for consistent UI theming.",
+
+  "colors": {
+    "shell": {
+      "dark": {
+        "bgStart": { "value": "#1a1715", "comment": "rs-shell top gradient" },
+        "bgEnd": { "value": "#100f0e", "comment": "rs-shell bottom gradient" },
+        "gridColor": { "value": "rgba(255,255,255,0.03)", "comment": "Subtle grid overlay" }
+      },
+      "light": {
+        "bgStart": { "value": "#f8f2e9", "comment": "ob-shell top gradient" },
+        "bgMid": { "value": "#f2ebdf", "comment": "ob-shell mid gradient" },
+        "bgEnd": { "value": "#eee4d6", "comment": "ob-shell bottom gradient" }
+      }
+    },
+    "panel": {
+      "dark": {
+        "bgStart": { "value": "rgba(37,31,28,0.94)", "comment": "rs-panel top gradient" },
+        "bgEnd": { "value": "rgba(20,18,17,0.98)", "comment": "rs-panel bottom gradient" },
+        "border": { "value": "rgba(201,168,122,0.24)", "comment": "rs-panel border" },
+        "innerBorder": { "value": "rgba(255,255,255,0.04)", "comment": "rs-panel ::after border" },
+        "shadow": { "value": "0_22px_50px_rgba(0,0,0,0.28)", "comment": "rs-panel box-shadow" },
+        "insetHighlight": { "value": "inset_0_1px_0_rgba(255,255,255,0.05)" }
+      },
+      "light": {
+        "bg": { "value": "#ffffff", "comment": "ob-step-card bg" },
+        "border": { "value": "#e7e5e4", "comment": "stone-200" },
+        "shadow": { "value": "0_20px_40px_rgba(15,23,42,0.08)", "comment": "ob-step-card shadow" }
+      }
+    },
+    "card": {
+      "dark": {
+        "bgStart": { "value": "rgba(52,45,40,0.92)", "comment": "rs-choice top gradient" },
+        "bgEnd": { "value": "rgba(29,26,24,0.96)", "comment": "rs-choice bottom gradient" },
+        "border": { "value": "rgba(214,197,168,0.14)", "comment": "rs-choice border" },
+        "borderHover": { "value": "rgba(238,203,128,0.32)", "comment": "rs-choice hover border" },
+        "borderSelected": { "value": "rgba(245,198,100,0.9)", "comment": "rs-choice selected border" },
+        "shadow": { "value": "0_18px_28px_rgba(0,0,0,0.16)", "comment": "rs-companion-card shadow" }
+      },
+      "light": {
+        "bg": { "value": "rgba(255,255,255,0.84)", "comment": "ob-style-card bg" },
+        "border": { "value": "rgba(214,211,209,0.95)", "comment": "stone-200-ish" },
+        "borderHover": { "value": "rgba(28,25,23,0.84)", "comment": "stone-900-ish" },
+        "shadowHover": { "value": "0_18px_34px_rgba(15,23,42,0.1)" },
+        "bgSelected": { "value": "#ffffff" }
+      }
+    },
+    "hero": {
+      "dark": {
+        "orangeAccent": { "value": "rgba(249,115,22,0.24)", "comment": "rs-hero orange radial" },
+        "blueAccent": { "value": "rgba(59,130,246,0.16)", "comment": "rs-hero blue radial" },
+        "bgStart": { "value": "rgba(55,43,36,0.98)", "comment": "rs-hero gradient start" },
+        "bgEnd": { "value": "rgba(26,23,21,0.98)", "comment": "rs-hero gradient end" }
+      }
+    },
+    "text": {
+      "primary": {
+        "dark": { "value": "#f5efe7", "comment": "body text dark theme" },
+        "light": { "value": "#1c1917", "comment": "text-stone-950" }
+      },
+      "secondary": {
+        "dark": { "value": "#bfa98f", "comment": "rs-label color" },
+        "light": { "value": "#57534e", "comment": "text-stone-600" }
+      },
+      "muted": {
+        "dark": { "value": "#a8a29e", "comment": "text-stone-400" },
+        "light": { "value": "#a8a29e", "comment": "text-stone-500" }
+      },
+      "disabled": {
+        "dark": { "value": "#78716c", "comment": "text-stone-500" },
+        "light": { "value": "#d6d3d1", "comment": "text-stone-300" }
+      }
+    },
+    "accent": {
+      "primary": { "value": "#fde68a", "comment": "amber-200 — main CTA" },
+      "primaryHover": { "value": "#fef08a", "comment": "amber-100 — CTA hover" },
+      "primaryText": { "value": "#0c0a09", "comment": "stone-950 — text on amber CTA" },
+      "classStrategist": { "value": "#5B6CFF", "comment": "Class accent — indigo" },
+      "classObserver": { "value": "#28A66A", "comment": "Class accent — green" },
+      "classScout": { "value": "#FF8A3D", "comment": "Class accent — orange" }
+    },
+    "districts": {
+      "amber": { "value": "#f59e0b", "comment": "Training" },
+      "teal": { "value": "#14b8a6", "comment": "Lectures" },
+      "sky": { "value": "#0ea5e9", "comment": "Adventure map" },
+      "violet": { "value": "#8b5cf6", "comment": "Echo hall / shop" },
+      "emerald": { "value": "#10b981", "comment": "Quests" },
+      "rose": { "value": "#f43f5e", "comment": "Collection" },
+      "stone": { "value": "#78716c", "comment": "Arena" }
+    },
+    "specialization": {
+      "priority": { "value": "#D97745", "comment": "Orange-brown" },
+      "signs": { "value": "#F2C14E", "comment": "Gold" },
+      "speed": { "value": "#52B3D9", "comment": "Cyan" },
+      "safety": { "value": "#65A30D", "comment": "Green" },
+      "dangers": { "value": "#C2410C", "comment": "Deep orange" },
+      "mixed": { "value": "#A855F7", "comment": "Purple" }
+    },
+    "status": {
+      "notStarted": {
+        "border": { "value": "rgba(255,255,255,0.1)" },
+        "bg": { "value": "rgba(255,255,255,0.05)" },
+        "text": { "value": "#d6d3d1" }
+      },
+      "inProgress": {
+        "border": { "value": "rgba(253,230,138,0.25)" },
+        "bg": { "value": "rgba(252,211,77,0.12)" },
+        "text": { "value": "#fefce8" }
+      },
+      "mastered": {
+        "border": { "value": "rgba(167,243,208,0.25)" },
+        "bg": { "value": "rgba(110,231,183,0.14)" },
+        "text": { "value": "#ecfdf5" }
+      },
+      "locked": {
+        "border": { "value": "rgba(253,164,175,0.25)" },
+        "bg": { "value": "rgba(251,113,133,0.12)" },
+        "text": { "value": "#fff1f2" }
+      }
+    },
+    "badge": {
+      "dark": {
+        "bg": { "value": "rgba(255,247,237,0.08)", "comment": "rs-badge bg" },
+        "text": { "value": "#eadac2", "comment": "rs-badge text" },
+        "highlight": { "value": "inset_0_1px_0_rgba(255,255,255,0.08)", "comment": "rs-badge inner highlight" }
+      }
+    },
+    "divider": {
+      "dark": {
+        "gradient": { "value": "linear-gradient(90deg, transparent 0%, rgba(218,184,128,0.26) 20%, rgba(218,184,128,0.08) 80%, transparent 100%)", "comment": "rs-divider" }
+      }
+    },
+    "progressBar": {
+      "track": {
+        "bg": { "value": "rgba(255,255,255,0.08)", "comment": "Progress bar track" }
+      },
+      "fill": {
+        "bg": { "value": "#fde68a", "comment": "amber-200" }
+      }
+    },
+    "zincScale": {
+      "50": { "value": "#fafafa" },
+      "100": { "value": "#f5f5f5" },
+      "200": { "value": "#e5e5e5" },
+      "300": { "value": "#d4d4d4" },
+      "400": { "value": "#a3a3a3" },
+      "500": { "value": "#737373" },
+      "600": { "value": "#525252" },
+      "700": { "value": "#404040" },
+      "800": { "value": "#262626" },
+      "900": { "value": "#171717" },
+      "950": { "value": "#0a0a0a" }
+    },
+    "avatarDefaults": {
+      "skin": { "value": "#F7D7C4" },
+      "hair": { "value": "#1E1E1E" }
+    },
+    "input": {
+      "dark": {
+        "bg": { "value": "rgba(255,255,255,0.04)", "comment": "bg-white/4" },
+        "border": { "value": "rgba(255,255,255,0.06)", "comment": "border-white/8" },
+        "focusRing": { "value": "rgba(255,255,255,0.06)", "comment": "ring-accent" }
+      },
+      "light": {
+        "bg": { "value": "#ffffff" },
+        "border": { "value": "#e7e5e4", "comment": "border-stone-200" },
+        "placeholder": { "value": "#a8a29e", "comment": "placeholder-stone-400" },
+        "focusBorder": { "value": "#a8a29e", "comment": "focus:border-stone-400" },
+        "focusRing": { "value": "rgba(214,211,209,0.7)", "comment": "focus:ring-stone-300/70" }
+      }
+    },
+    "sidebar": {
+      "dark": {
+        "bg": { "value": "rgba(23,20,18,0.95)", "comment": "bg-[#171412]/95" },
+        "border": { "value": "rgba(245,158,11,0.1)", "comment": "border-amber-200/10" },
+        "text": { "value": "#f5f5f4", "comment": "text-stone-100" }
+      }
+    },
+    "navigation": {
+      "dark": {
+        "itemHoverBg": { "value": "rgba(255,255,255,0.06)", "comment": "Flux sidebar item hover" },
+        "itemActiveBg": { "value": "rgba(255,255,255,0.08)", "comment": "Flux sidebar item active" },
+        "itemActiveBorder": { "value": "#fde68a", "comment": "amber-200 indicator" }
+      }
+    }
+  },
+
+  "spacing": {
+    "xs": { "value": "4", "comment": "px-1 / 4px" },
+    "sm": { "value": "8", "comment": "p-2 / 8px" },
+    "md": { "value": "12", "comment": "p-3 / gap-3 / 12px" },
+    "lg": { "value": "16", "comment": "p-4 / gap-4 / 16px" },
+    "xl": { "value": "20", "comment": "p-5 / gap-5 / 20px" },
+    "2xl": { "value": "24", "comment": "p-6 / gap-6 / 24px" },
+    "3xl": { "value": "28", "comment": "p-7 / 28px" },
+    "sectionGap": { "value": "24", "comment": "gap between sections" }
+  },
+
+  "radius": {
+    "none": { "value": "0", "comment": "No rounding" },
+    "sm": { "value": "9.6", "comment": "rounded-xl / 0.6rem / 9.6px — inner cards" },
+    "pill": { "value": "14.4", "comment": "rounded-[1.2rem] / pills" },
+    "chip": { "value": "16", "comment": "rounded-2xl / 1rem / 16px — stat chips" },
+    "form": { "value": "20", "comment": "rounded-[1.25rem] / form inputs" },
+    "cardSm": { "value": "22.4", "comment": "rounded-[1.4rem] / inner cards" },
+    "card": { "value": "25.6", "comment": "rounded-[1.6rem] / sidebar card, step indicator" },
+    "cardLg": { "value": "27.2", "comment": "rounded-[1.7rem] / companion card" },
+    "cardXl": { "value": "28", "comment": "rounded-[1.75rem] / map card, class card" },
+    "panel": { "value": "32", "comment": "rounded-[2rem] / main panels" },
+    "full": { "value": "9999", "comment": "rounded-full / pills, badges, avatars" }
+  },
+
+  "typography": {
+    "fontFamily": {
+      "sans": {
+        "value": ["Avenir Next", "Trebuchet MS", "Segoe UI", "sans-serif"],
+        "comment": "--font-sans / body font"
+      },
+      "display": {
+        "value": ["Iowan Old Style", "Palatino Linotype", "Book Antiqua", "Georgia", "serif"],
+        "comment": "rs-display / hero headings, important labels"
+      }
+    },
+    "size": {
+      "label": { "value": 11, "comment": "rs-label / 11px — uppercase tracking labels" },
+      "badge": { "value": 11, "comment": "rs-badge / 11px — uppercase badges" },
+      "caption": { "value": 10, "comment": "text-[10px] — status badges" },
+      "bodySm": { "value": 14, "comment": "text-sm / 14px — body copy" },
+      "body": { "value": 16, "comment": "text-base / 16px — body" },
+      "bodyLg": { "value": 18, "comment": "text-lg / 18px" },
+      "headingSm": { "value": 20, "comment": "text-xl / 20px" },
+      "headingMd": { "value": 24, "comment": "text-2xl / 24px" },
+      "headingLg": { "value": 30, "comment": "text-3xl / 30px" },
+      "headingXl": { "value": 36, "comment": "text-4xl / 36px" },
+      "hero": { "value": 48, "comment": "text-6xl / 48px" }
+    },
+    "weight": {
+      "regular": { "value": 400 },
+      "semibold": { "value": 600 },
+      "bold": { "value": 700 }
+    },
+    "letterSpacing": {
+      "label": { "value": 0.28, "comment": "rs-label / tracking-[0.28em] / em" },
+      "badge": { "value": 0.22, "comment": "rs-badge / tracking-[0.22em] / em" },
+      "status": { "value": 0.16, "comment": "Status badge / tracking-[0.16em] / em" },
+      "cta": { "value": 0.16, "comment": "CTA button / tracking-[0.16em] / em" },
+      "display": { "value": -0.03, "comment": "rs-display / negative letter-spacing / em" }
+    },
+    "lineHeight": {
+      "tight": { "value": 1.25, "comment": "leading-tight" },
+      "normal": { "value": 1.5, "comment": "leading-normal" },
+      "relaxed": { "value": 1.75, "comment": "leading-relaxed / leading-7" }
+    }
+  },
+
+  "borders": {
+    "width": {
+      "thin": { "value": 1, "comment": "Standard border width in px" }
+    },
+    "style": {
+      "solid": { "value": "solid" }
+    }
+  },
+
+  "shadows": {
+    "panelDark": {
+      "offsetY": { "value": 22 },
+      "blur": { "value": 50 },
+      "color": { "value": "rgba(0,0,0,0.28)" },
+      "insetHighlight": { "value": "inset_0_1px_0_rgba(255,255,255,0.05)" }
+    },
+    "cardDark": {
+      "offsetY": { "value": 18 },
+      "blur": { "value": 28 },
+      "color": { "value": "rgba(0,0,0,0.16)" }
+    },
+    "cardLight": {
+      "offsetY": { "value": 20 },
+      "blur": { "value": 40 },
+      "color": { "value": "rgba(15,23,42,0.08)" }
+    },
+    "cardLightHover": {
+      "offsetY": { "value": 18 },
+      "blur": { "value": 34 },
+      "color": { "value": "rgba(15,23,42,0.1)" }
+    },
+    "primaryButtonLight": {
+      "offsetY": { "value": 18 },
+      "blur": { "value": 32 },
+      "color": { "value": "rgba(15,23,42,0.16)" }
+    },
+    "previewDark": {
+      "offsetY": { "value": 24 },
+      "blur": { "value": 48 },
+      "color": { "value": "rgba(0,0,0,0.22)" }
+    },
+    "sliderButton": {
+      "offsetY": { "value": 10 },
+      "blur": { "value": 20 },
+      "color": { "value": "rgba(15,23,42,0.08)" }
+    },
+    "selectedRing": {
+      "blur": { "value": 0 },
+      "spread": { "value": 2 },
+      "color": { "value": "rgba(245,198,100,0.2)" },
+      "comment": "rs-swatch selected ring"
+    }
+  },
+
+  "componentSizes": {
+    "button": {
+      "sm": { "height": 34, "paddingH": 12, "paddingV": 6, "comment": "px-3 py-2 / action-link / 34px" },
+      "md": { "height": 38, "paddingH": 16, "paddingV": 8, "comment": "px-4 py-2 / cta pill / 38px" },
+      "lg": { "height": 44, "paddingH": 24, "paddingV": 12, "comment": "px-5 py-3 / register CTA / 44px" },
+      "xl": { "height": 52, "paddingH": 20, "paddingV": 16, "comment": "px-5 py-4 / onboarding primary / 52px" }
+    },
+    "input": {
+      "height": { "value": 48, "comment": "py-3 px-4 / 48px for text inputs" },
+      "textareaHeight": { "value": 120 }
+    },
+    "badge": {
+      "height": { "value": 22, "paddingH": 12, "paddingV": 4, "comment": "py-1 px-3" }
+    },
+    "statChip": {
+      "paddingH": { "value": 16 },
+      "paddingV": { "value": 12 },
+      "comment": "px-4 py-3"
+    },
+    "mapCard": {
+      "imageHeight": { "value": 128, "comment": "h-32" }
+    },
+    "avatarPreview": {
+      "stageHeight": { "value": 288, "comment": "h-24rem" },
+      "stageWidth": { "value": 332, "comment": "max-width" },
+      "hubPreviewWidth": { "value": 288, "comment": "w-min-content max-w-[18rem]" },
+      "hubPreviewScale": { "value": 1.22, "comment": "--avatar-scale for hub" },
+      "onboardingPreviewScale": { "value": 1.34, "comment": "--avatar-scale for ob" }
+    },
+    "companionSprite": {
+      "sm": { "value": 32, "comment": "h-8 w-8" },
+      "md": { "value": 48, "comment": "h-12 w-12" }
+    },
+    "progressBar": {
+      "height": { "value": 8, "comment": "h-2" }
+    }
+  },
+
+  "themes": {
+    "dark": {
+      "name": { "value": "rune-seeker", "comment": "Primary app shell (class='dark' on html)" },
+      "previewClass": "rs-shell",
+      "panelClass": "rs-panel",
+      "heroClass": "rs-hero",
+      "cardClass": "rs-map-card",
+      "companionCard": "rs-companion-card",
+      "sidebarCard": "rs-sidebar-card",
+      "badgeClass": "rs-badge",
+      "labelClass": "rs-label",
+      "statChipClass": "rs-stat-chip",
+      "dividerClass": "rs-divider",
+      "choiceClass": "rs-choice",
+      "swatchClass": "rs-swatch",
+      "avatarCrestClass": "rs-avatar-crest"
+    },
+    "light": {
+      "name": { "value": "onboarding", "comment": "Onboarding / light theme" },
+      "previewClass": "ob-shell",
+      "stepClass": "ob-step-card",
+      "stepIndicatorClass": "ob-step-indicator",
+      "stepDotClass": "ob-step-dot",
+      "styleCardClass": "ob-style-card",
+      "variantCardClass": "ob-variant-card",
+      "classCardClass": "ob-class-card",
+      "companionChipClass": "ob-companion-chip",
+      "sliderButtonClass": "ob-slider__button",
+      "choiceIndicatorClass": "ob-choice-indicator",
+      "avatarFrameClass": "ob-avatar-frame",
+      "avatarStageClass": "ob-avatar-stage",
+      "previewCardClass": "ob-preview-card",
+      "kickerClass": "ob-kicker"
+    }
+  },
+
+  "animations": {
+    "durations": {
+      "fast": { "value": 160, "comment": "ms — border/color transitions" },
+      "normal": { "value": 200, "comment": "ms — button/panel transitions" },
+      "medium": { "value": 500, "comment": "ms — fadeUp entrance" },
+      "slow": { "value": 4500, "comment": "ms — floating/glow animations" }
+    },
+    "easings": {
+      "default": { "value": "ease-out" },
+      "easeInOut": { "value": "ease-in-out" }
+    }
+  },
+
+  "authoring": {
+    "tailwindVersion": { "value": "4.0.7" },
+    "cssFramework": { "value": "Tailwind CSS v4 (CSS-first via @theme)" },
+    "uiLibrary": { "value": "Livewire Flux v2.13.1" },
+    "variant": { "value": "dark (&:where(.dark, .dark *))" },
+    "sourceFiles": [
+      "resources/css/app.css",
+      "resources/css/combat.css",
+      "resources/css/combat-prep.css",
+      "resources/css/skill-tree.css",
+      "resources/views/components/**/*.blade.php",
+      "resources/views/layouts/**/*.blade.php",
+      "resources/views/dashboard.blade.php",
+      "resources/views/onboarding/*.blade.php",
+      "resources/views/pages/auth/*.blade.php",
+      "config/avatar.php"
+    ]
+  }
+}

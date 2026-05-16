@@ -12,7 +12,7 @@ const ZONES: Array[Dictionary] = [
 @onready var _avatar_rect: TextureRect = %AvatarRect
 @onready var _name_label: Label = %NameLabel
 @onready var _level_label: Label = %LevelLabel
-@onready var _xp_bar: StatBar = %XpBar
+@onready var _xp_bar: AppStatBar = %XpBar
 @onready var _coins_label: Label = %CoinsLabel
 @onready var _zone_container: GridContainer = %ZoneContainer
 
@@ -62,7 +62,7 @@ func _on_zone_gui_input(event: InputEvent, _scene_key: String, panel: PanelConta
 		_navigate_to_zone(_scene_key, panel)
 
 func _navigate_to_zone(_scene_key: String, _panel: PanelContainer) -> void:
-	Toast.show_toast("Coming soon!", Toast.Type.INFO)
+	AppToast.show_toast("Coming soon!", AppToast.Type.INFO)
 
 func _on_back_pressed() -> void:
 	SceneManager.go_to_menu(SceneManager.TransitionStyle.SLIDE_RIGHT)

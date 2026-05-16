@@ -121,15 +121,16 @@ func _refresh_selection() -> void:
 func _apply_selected_style(btn: Button, selected: bool) -> void:
 	var normal: StyleBoxFlat = StyleBoxFlat.new()
 	if selected:
-		normal.bg_color = Color("d4af37")
-		normal.border_color = Color("b8960c")
+		normal.bg_color = DesignTokens.Colors.Accent.PRIMARY
+		normal.border_color = DesignTokens.Colors.Accent.PRIMARY * Color(0.85, 0.85, 0.85, 1)
 	else:
-		normal.bg_color = Color("2d2d2d")
-		normal.border_color = Color("4a4540")
-	normal.border_width_left = 2
-	normal.border_width_top = 2
-	normal.border_width_right = 2
-	normal.border_width_bottom = 2
+		normal.bg_color = DesignTokens.Colors.Card.Dark.BG_START
+		normal.border_color = DesignTokens.Colors.PanelTokens.Dark.BORDER
+	normal.border_width_left = int(DesignTokens.Borders.WIDTH_THIN)
+	normal.border_width_top = int(DesignTokens.Borders.WIDTH_THIN)
+	normal.border_width_right = int(DesignTokens.Borders.WIDTH_THIN)
+	normal.border_width_bottom = int(DesignTokens.Borders.WIDTH_THIN)
+	normal.anti_aliasing = false
 	btn.add_theme_stylebox_override("normal", normal)
 	btn.add_theme_stylebox_override("pressed", normal)
 	btn.add_theme_stylebox_override("hover", normal)
