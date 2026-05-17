@@ -55,14 +55,19 @@ func _ready() -> void:
 	gui_input.connect(_on_gui)
 	_style_panel()
 	_style_labels()
-	_title_label.text = quest_title
-	_desc_label.text = quest_description
-	_status_badge.text = status_text
-	_cta_button.text = cta_text
-	_cta_button.visible = is_available
-	if image_texture: _image_rect.texture = image_texture
+	if _title_label != null:
+		_title_label.text = quest_title
+	if _desc_label != null:
+		_desc_label.text = quest_description
+	if _status_badge != null:
+		_status_badge.text = status_text
+	if _cta_button != null:
+		_cta_button.text = cta_text
+		_cta_button.visible = is_available
+		_cta_button.pressed.connect(_on_cta)
+	if image_texture and _image_rect != null:
+		_image_rect.texture = image_texture
 	_apply_tone()
-	_cta_button.pressed.connect(_on_cta)
 
 func _style_panel() -> void:
 	var s := StyleBoxFlat.new()

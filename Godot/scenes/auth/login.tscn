@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://b6d33u5sjjkqu"]
+[gd_scene load_steps=5 format=3 uid="uid://b6d33u5sjjkqu"]
 
 [ext_resource type="Script" path="res://scenes/auth/login.gd" id="1_script"]
 [ext_resource type="Theme" path="res://ui/theme/app_theme.tres" id="2_theme"]
 [ext_resource type="PackedScene" path="res://ui/components/AppButton.tscn" id="3_button"]
+[ext_resource type="PackedScene" path="res://ui/components/AppAuthHeader.tscn" id="4_auth_header"]
 
 [node name="Login" type="Control"]
 layout_mode = 3
@@ -14,158 +15,156 @@ grow_vertical = 2
 theme = ExtResource("2_theme")
 script = ExtResource("1_script")
 
-[node name="Margin" type="MarginContainer" parent="."]
+[node name="Background" type="ColorRect" parent="."]
+unique_name_in_owner = true
 layout_mode = 1
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme_override_constants/margin_left = 28
-theme_override_constants/margin_top = 48
-theme_override_constants/margin_right = 28
-theme_override_constants/margin_bottom = 28
 
-[node name="VBox" type="VBoxContainer" parent="Margin"]
+[node name="RootMargin" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="Center" type="CenterContainer" parent="RootMargin"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-alignment = 1
-theme_override_constants/separation = 28
 
-[node name="HeaderArea" type="VBoxContainer" parent="Margin/VBox"]
+[node name="AuthColumn" type="VBoxContainer" parent="RootMargin/Center"]
 layout_mode = 2
+custom_minimum_size = Vector2(300, 0)
 size_flags_horizontal = 4
+size_flags_vertical = 4
 alignment = 1
-theme_override_constants/separation = 12
+theme_override_constants/separation = 20
 
-[node name="LogoIcon" type="Label" parent="Margin/VBox/HeaderArea"]
+[node name="LogoRow" type="CenterContainer" parent="RootMargin/Center/AuthColumn"]
 layout_mode = 2
-custom_minimum_size = Vector2(0, 64)
-text = "⚔"
+size_flags_horizontal = 3
+
+[node name="LogoBadge" type="PanelContainer" parent="RootMargin/Center/AuthColumn/LogoRow"]
+layout_mode = 2
+custom_minimum_size = Vector2(36, 36)
+theme_type_variation = "AuthLogoBadge"
+
+[node name="LogoGlyph" type="Label" parent="RootMargin/Center/AuthColumn/LogoRow/LogoBadge"]
+layout_mode = 2
+text = "✦"
 horizontal_alignment = 1
 vertical_alignment = 1
-theme_type_variation = "LabelDisplayHero"
-
-[node name="BrandName" type="Label" parent="Margin/VBox/HeaderArea"]
-layout_mode = 2
-text = "HEROES"
-horizontal_alignment = 1
-theme_type_variation = "LabelDisplayLg"
-
-[node name="BrandTagline" type="Label" parent="Margin/VBox/HeaderArea"]
-layout_mode = 2
-text = "Academy"
-horizontal_alignment = 1
 theme_type_variation = "LabelEyebrow"
 
-[node name="Card" type="PanelContainer" parent="Margin/VBox"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 4
-theme_type_variation = "CardPanel"
-
-[node name="CardVBox" type="VBoxContainer" parent="Margin/VBox/Card"]
+[node name="Card" type="PanelContainer" parent="RootMargin/Center/AuthColumn"]
 layout_mode = 2
 size_flags_horizontal = 3
-theme_override_constants/separation = 3
-add_theme_constant_override("margin_left", 28)
-add_theme_constant_override("margin_right", 28)
-add_theme_constant_override("margin_top", 28)
-add_theme_constant_override("margin_bottom", 28)
+theme_type_variation = "AuthCardPanel"
 
-[node name="WelcomeTitle" type="Label" parent="Margin/VBox/Card/CardVBox"]
+[node name="CardVBox" type="VBoxContainer" parent="RootMargin/Center/AuthColumn/Card"]
 layout_mode = 2
-text = "Connecte-toi"
-horizontal_alignment = 1
-theme_type_variation = "LabelHeading"
+size_flags_horizontal = 3
+theme_override_constants/separation = 16
 
-[node name="WelcomeDesc" type="Label" parent="Margin/VBox/Card/CardVBox"]
-layout_mode = 2
-text = "Entre ton email et ton mot de passe pour commencer l'aventure."
-horizontal_alignment = 1
-theme_type_variation = "LabelMuted"
-autowrap_mode = 3
+[node name="AuthHeader" parent="RootMargin/Center/AuthColumn/Card/CardVBox" instance=ExtResource("4_auth_header")]
+layout_mode = 1
+header_title = "Connecte-toi à ton compte"
+header_description = "Entre ton email et ton mot de passe ci-dessous pour te connecter."
 
-[node name="SepA" type="Control" parent="Margin/VBox/Card/CardVBox"]
+[node name="EmailField" type="VBoxContainer" parent="RootMargin/Center/AuthColumn/Card/CardVBox"]
 layout_mode = 2
-custom_minimum_size = Vector2(0, 20)
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
 
-[node name="EmailLabel" type="Label" parent="Margin/VBox/Card/CardVBox"]
+[node name="EmailLabel" type="Label" parent="RootMargin/Center/AuthColumn/Card/CardVBox/EmailField"]
 layout_mode = 2
-text = "Email"
+text = "Adresse email"
 theme_type_variation = "LabelEyebrow"
 
-[node name="EmailInput" type="LineEdit" parent="Margin/VBox/Card/CardVBox"]
+[node name="EmailInput" type="LineEdit" parent="RootMargin/Center/AuthColumn/Card/CardVBox/EmailField"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "ton.email@exemple.com"
+theme_type_variation = "AuthInput"
+placeholder_text = "email@example.com"
 virtual_keyboard_type = 2
 
-[node name="SepB" type="Control" parent="Margin/VBox/Card/CardVBox"]
+[node name="PasswordField" type="VBoxContainer" parent="RootMargin/Center/AuthColumn/Card/CardVBox"]
 layout_mode = 2
-custom_minimum_size = Vector2(0, 16)
+size_flags_horizontal = 3
+theme_override_constants/separation = 8
 
-[node name="PwdLabel" type="Label" parent="Margin/VBox/Card/CardVBox"]
+[node name="PasswordHeaderRow" type="HBoxContainer" parent="RootMargin/Center/AuthColumn/Card/CardVBox/PasswordField"]
+layout_mode = 2
+size_flags_horizontal = 3
+alignment = 1
+
+[node name="PasswordLabel" type="Label" parent="RootMargin/Center/AuthColumn/Card/CardVBox/PasswordField/PasswordHeaderRow"]
 layout_mode = 2
 text = "Mot de passe"
 theme_type_variation = "LabelEyebrow"
 
-[node name="PasswordInput" type="LineEdit" parent="Margin/VBox/Card/CardVBox"]
+[node name="ForgotLink" type="LinkButton" parent="RootMargin/Center/AuthColumn/Card/CardVBox/PasswordField/PasswordHeaderRow"]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "••••••••"
+size_flags_vertical = 4
+text = "Mot de passe oublié ?"
+theme_type_variation = "LinkButtonAuth"
+
+[node name="PasswordInput" type="LineEdit" parent="RootMargin/Center/AuthColumn/Card/CardVBox/PasswordField"]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_type_variation = "AuthInput"
+placeholder_text = "Mot de passe"
 secret = true
 virtual_keyboard_type = 4
 
-[node name="ActionRow" type="HBoxContainer" parent="Margin/VBox/Card/CardVBox"]
+[node name="RememberCheck" type="CheckBox" parent="RootMargin/Center/AuthColumn/Card/CardVBox"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Se souvenir de moi"
+
+[node name="ErrorLabel" type="Label" parent="RootMargin/Center/AuthColumn/Card/CardVBox"]
+unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
-
-[node name="RememberCheck" type="CheckBox" parent="Margin/VBox/Card/CardVBox/ActionRow"]
-unique_name_in_owner = true
-layout_mode = 2
-text = "Se souvenir"
-
-[node name="ForgotLink" type="Button" parent="Margin/VBox/Card/CardVBox/ActionRow"]
-unique_name_in_owner = true
-layout_mode = 2
-size_flags_horizontal = 10
-text = "Mot de passe oublié ?"
-theme_type_variation = "ButtonSecondary"
-
-[node name="SepC" type="Control" parent="Margin/VBox/Card/CardVBox"]
-layout_mode = 2
-custom_minimum_size = Vector2(0, 20)
-
-[node name="ErrorLabel" type="Label" parent="Margin/VBox/Card/CardVBox"]
-unique_name_in_owner = true
-layout_mode = 2
 text = ""
 horizontal_alignment = 1
-theme_type_variation = "LabelMuted"
+theme_type_variation = "LabelAuthDescription"
 visible = false
 
-[node name="LoginButton" parent="Margin/VBox/Card/CardVBox" instance=ExtResource("3_button")]
+[node name="LoginButton" parent="RootMargin/Center/AuthColumn/Card/CardVBox" instance=ExtResource("3_button")]
 unique_name_in_owner = true
 layout_mode = 2
 size_flags_horizontal = 3
 label_text = "Se connecter"
 
-[node name="SepD" type="Control" parent="Margin/VBox"]
+[node name="FooterWrap" type="CenterContainer" parent="RootMargin/Center/AuthColumn"]
 layout_mode = 2
-custom_minimum_size = Vector2(0, 4)
+size_flags_horizontal = 3
 
-[node name="RegisterHint" type="Label" parent="Margin/VBox"]
+[node name="FooterRow" type="HBoxContainer" parent="RootMargin/Center/AuthColumn/FooterWrap"]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="RegisterHint" type="Label" parent="RootMargin/Center/AuthColumn/FooterWrap/FooterRow"]
 layout_mode = 2
 text = "Pas encore de compte ?"
-horizontal_alignment = 1
-theme_type_variation = "LabelMuted"
+theme_type_variation = "LabelAuthDescription"
 
-[node name="RegisterLink" type="Button" parent="Margin/VBox"]
+[node name="RegisterLink" type="LinkButton" parent="RootMargin/Center/AuthColumn/FooterWrap/FooterRow"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "Créer un compte"
-theme_type_variation = "ButtonSecondary"
+theme_type_variation = "LinkButtonAuth"

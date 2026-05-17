@@ -17,29 +17,32 @@ custom_minimum_size = Vector2(0, 128)
 expand_mode = 1
 stretch_mode = 5
 
-[node name="Body" type="VBoxContainer" parent="VBox"]
+[node name="Body" type="MarginContainer" parent="VBox"]
+layout_mode = 2
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_top = 12
+
+[node name="BodyVBox" type="VBoxContainer" parent="VBox/Body"]
 layout_mode = 2
 theme_override_constants/separation = 8
-add_theme_constant_override("margin_left", 16)
-add_theme_constant_override("margin_right", 16)
-add_theme_constant_override("margin_top", 12)
 
-[node name="StatusBadge" type="Label" parent="VBox/Body"]
+[node name="StatusBadge" type="Label" parent="VBox/Body/BodyVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "STATUT"
 horizontal_alignment = 1
 
-[node name="TitleLabel" type="Label" parent="VBox/Body"]
+[node name="TitleLabel" type="Label" parent="VBox/Body/BodyVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 
-[node name="DescriptionLabel" type="Label" parent="VBox/Body"]
+[node name="DescriptionLabel" type="Label" parent="VBox/Body/BodyVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 autowrap_mode = 3
 
-[node name="CtaButton" type="Button" parent="VBox/Body"]
+[node name="CtaButton" type="Button" parent="VBox/Body/BodyVBox"]
 unique_name_in_owner = true
 layout_mode = 2
 text = "EXPLORER"

@@ -1,14 +1,16 @@
 extends Control
 
+@onready var _bg: ColorRect = %Background
 @onready var _name_input: LineEdit = %NameInput
 @onready var _email_input: LineEdit = %EmailInput
 @onready var _password_input: LineEdit = %PasswordInput
 @onready var _confirm_input: LineEdit = %ConfirmInput
-@onready var _register_button: AppButton = %RegisterButton
-@onready var _back_button: AppButton = %BackButton
+@onready var _register_button: AppButton = $Center/VBox/RegisterButton
+@onready var _back_button: AppButton = $Center/VBox/BackButton
 @onready var _error_label: Label = %ErrorLabel
 
 func _ready() -> void:
+	_bg.color = get_theme_color("background_darkest", "Palette")
 	_register_button.pressed.connect(_on_register_pressed)
 	_back_button.pressed.connect(_on_back_pressed)
 	_error_label.text = ""

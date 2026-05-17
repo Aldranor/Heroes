@@ -24,8 +24,8 @@ func _ready() -> void:
 func set_sprite(texture: Texture2D) -> void:
 	_avatar_sprite.texture = texture
 
-func set_info(nickname: String, class_name: String) -> void:
+func set_info(nickname: String, class_label: String) -> void:
 	_name_label.text = nickname
 	_name_label.add_theme_color_override("font_color", Color("f5f5f4"))
-	_class_label.text = class_name
+	_class_label.text = class_label
 	_class_label.add_theme_color_override("font_color", Color("d6d3d1"))

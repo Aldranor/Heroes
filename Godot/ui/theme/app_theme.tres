@@ -1,6 +1,7 @@
 [gd_resource type="Theme" format=3 uid="uid://cks8xse7ghoxc"]
 
 [ext_resource type="Font" path="res://assets/fonts/cormorant_semibold.tres" id="1_display_font"]
+[ext_resource type="Font" path="res://assets/fonts/inter_medium.tres" id="2_ui_medium_font"]
 
 [sub_resource type="SystemFont" id="sf_ui_body"]
 font_names = PackedStringArray("Avenir Next", "Trebuchet MS", "Segoe UI", "sans-serif")
@@ -145,6 +146,10 @@ corner_radius_bottom_right = 16
 corner_radius_bottom_left = 16
 anti_aliasing = false
 
+[sub_resource type="StyleBoxFlat" id="sb_checkbox_clear"]
+bg_color = Color(0, 0, 0, 0)
+anti_aliasing = false
+
 [sub_resource type="StyleBoxFlat" id="sb_card"]
 content_margin_left = 16.0
 content_margin_top = 16.0
@@ -160,6 +165,90 @@ corner_radius_top_left = 26
 corner_radius_top_right = 26
 corner_radius_bottom_right = 26
 corner_radius_bottom_left = 26
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="sb_auth_logo_badge"]
+bg_color = Color(0.101961, 0.090196, 0.082353, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.231373, 0.207843, 0.180392, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="sb_auth_card"]
+content_margin_left = 32.0
+content_margin_top = 28.0
+content_margin_right = 32.0
+content_margin_bottom = 28.0
+bg_color = Color(0.047059, 0.039216, 0.035294, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.160784, 0.145098, 0.133333, 1)
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+shadow_color = Color(0, 0, 0, 0.22)
+shadow_size = 18
+shadow_offset = Vector2(0, 6)
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="sb_auth_input_focus"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.101961, 0.090196, 0.082353, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.992157, 0.901961, 0.541176, 0.6)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="sb_auth_input_normal"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.101961, 0.090196, 0.082353, 1)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.203922, 0.176471, 0.156863, 1)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
+anti_aliasing = false
+
+[sub_resource type="StyleBoxFlat" id="sb_auth_input_readonly"]
+content_margin_left = 12.0
+content_margin_top = 12.0
+content_margin_right = 12.0
+content_margin_bottom = 12.0
+bg_color = Color(0.101961, 0.090196, 0.082353, 0.7)
+border_width_left = 1
+border_width_top = 1
+border_width_right = 1
+border_width_bottom = 1
+border_color = Color(0.203922, 0.176471, 0.156863, 0.8)
+corner_radius_top_left = 10
+corner_radius_top_right = 10
+corner_radius_bottom_right = 10
+corner_radius_bottom_left = 10
 anti_aliasing = false
 
 [sub_resource type="StyleBoxFlat" id="sb_line_edit_focus"]
@@ -306,11 +395,25 @@ ButtonSm/styles/focus = SubResource("sb_button_sm_hover")
 ButtonSm/styles/hover = SubResource("sb_button_sm_hover")
 ButtonSm/styles/normal = SubResource("sb_button_sm_normal")
 ButtonSm/styles/pressed = SubResource("sb_button_primary_pressed")
+AuthCardPanel/styles/panel = SubResource("sb_auth_card")
+AuthInput/colors/caret_color = Color(0.992157, 0.901961, 0.541176, 1)
+AuthInput/colors/font_color = Color(0.960784, 0.937255, 0.905882, 1)
+AuthInput/colors/font_placeholder_color = Color(0.635294, 0.635294, 0.635294, 1)
+AuthInput/colors/selection_color = Color(0.496078, 0.45098, 0.270588, 1)
+AuthInput/styles/focus = SubResource("sb_auth_input_focus")
+AuthInput/styles/normal = SubResource("sb_auth_input_normal")
+AuthInput/styles/read_only = SubResource("sb_auth_input_readonly")
+AuthLogoBadge/styles/panel = SubResource("sb_auth_logo_badge")
 CardPanel/styles/panel = SubResource("sb_card")
 CheckBox/colors/font_color = Color(0.960784, 0.937255, 0.905882, 1)
 CheckBox/colors/font_hover_color = Color(0.992157, 0.901961, 0.541176, 1)
 CheckBox/colors/font_pressed_color = Color(0.960784, 0.937255, 0.905882, 1)
 CheckBox/constants/h_separation = 8
+CheckBox/styles/disabled = SubResource("sb_checkbox_clear")
+CheckBox/styles/focus = SubResource("sb_checkbox_clear")
+CheckBox/styles/hover = SubResource("sb_checkbox_clear")
+CheckBox/styles/normal = SubResource("sb_checkbox_clear")
+CheckBox/styles/pressed = SubResource("sb_checkbox_clear")
 Label/colors/font_color = Color(0.960784, 0.937255, 0.905882, 1)
 Label/colors/font_outline_color = Color(0, 0, 0, 0)
 Label/font_sizes/font_size = 16
@@ -318,8 +421,15 @@ Label/fonts/font = SubResource("sf_ui_body")
 LabelEyebrow/colors/font_color = Color(0.74902, 0.662745, 0.560784, 1)
 LabelEyebrow/font_sizes/font_size = 11
 LabelEyebrow/fonts/font = SubResource("sf_ui_body")
+LabelAuthDescription/colors/font_color = Color(0.635294, 0.635294, 0.635294, 1)
+LabelAuthDescription/font_sizes/font_size = 14
+LabelAuthDescription/fonts/font = SubResource("sf_ui_body")
+LabelAuthTitle/colors/font_color = Color(1, 1, 1, 1)
+LabelAuthTitle/font_sizes/font_size = 28
+LabelAuthTitle/fonts/font = ExtResource("2_ui_medium_font")
 LabelHeading/colors/font_color = Color(0.960784, 0.937255, 0.905882, 1)
-LabelHeading/font_sizes/font_size = 30
+LabelHeading/font_sizes/font_size = 24
+LabelHeading/fonts/font = ExtResource("2_ui_medium_font")
 LabelMuted/colors/font_color = Color(0.658824, 0.635294, 0.619608, 1)
 LabelMuted/font_sizes/font_size = 14
 LabelMuted/fonts/font = SubResource("sf_ui_body")
@@ -355,12 +465,17 @@ LinkButton/font_sizes/font_size = 14
 LinkButton/fonts/font = SubResource("sf_ui_body")
 LinkButton/colors/font_color = Color(0.960784, 0.937255, 0.905882, 1)
 LinkButton/colors/font_hover_color = Color(0.992157, 0.901961, 0.541176, 1)
+LinkButtonAuth/font_sizes/font_size = 14
+LinkButtonAuth/fonts/font = SubResource("sf_ui_body")
+LinkButtonAuth/colors/font_color = Color(0.635294, 0.635294, 0.635294, 1)
+LinkButtonAuth/colors/font_hover_color = Color(0.960784, 0.937255, 0.905882, 1)
 Palette/colors/accent_blue = Color(0.321569, 0.701961, 0.85098, 1)
 Palette/colors/accent_gold = Color(0.992157, 0.901961, 0.541176, 1)
 Palette/colors/accent_green = Color(0.396078, 0.639216, 0.05098, 1)
 Palette/colors/accent_orange = Color(0.85098, 0.466667, 0.270588, 1)
 Palette/colors/accent_purple = Color(0.658824, 0.333333, 0.968627, 1)
 Palette/colors/accent_red = Color(0.760784, 0.254902, 0.047059, 1)
+Palette/colors/background_darkest = Color(0.0392157, 0.0392157, 0.0392157, 1)
 Palette/colors/background_primary = Color(0.101961, 0.090196, 0.082353, 1)
 Palette/colors/background_secondary = Color(0.145098, 0.121569, 0.109804, 0.94)
 Palette/colors/background_tertiary = Color(0.203922, 0.176471, 0.156863, 0.92)
