@@ -1,9 +1,0 @@
-[gd_scene load_steps=2 format=3]
-
-[ext_resource type="Script" path="res://ui/components/app_button.gd" id="1_script"]
-
-[node name="AppButton" type="Button"]
-custom_minimum_size = Vector2(44, 44)
-size_flags_horizontal = 3
-text = "Button"
-script = ExtResource("1_script")
